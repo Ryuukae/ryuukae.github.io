@@ -1,0 +1,14 @@
+/* responsive-styles.css */
+@media (min-width: 0) and (max-width: 1237px) {
+    .list-item-container {
+        display: block;
+    }
+
+    .repo-links-container {
+        padding-top: clamp(0.2%, 1vw, 0.30%);
+    }
+
+    .repo-arrow {
+        font-size: clamp(1em, 3vw, 1.2em);
+    }
+}

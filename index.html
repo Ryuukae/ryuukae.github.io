@@ -1,0 +1,139 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Page title and basic metadata -->
+    <title>Ryuukae's GitHub Pages</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="A directory of active GitHub pages and projects by Adam Ross DeStafeno (Ryuukae), including modern designs, dynamic content, and responsive web applications.">
+    <meta name="author" content="Adam Ross DeStafeno">
+    <meta name="keywords"
+          content="GitHub, projects, portfolio, Adam Ross DeStafeno, Ryuukae, web development, multi-step form, FAQ, responsive design, UI/UX, APIs, full-stack">
+    <!-- openGraph metadata -->
+    <meta property="og:title" content="Ryuukae's GitHub Pages">
+    <meta property="og:description" content="Explore active GitHub pages by Adam Ross DeStafeno (Ryuukae), featuring dynamic designs and innovative web applications.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ryuukae.io">
+    <meta property="og:image" content="https://storage.googleapis.com/a1aa/image/default.jpg">
+
+    <!-- External stylesheets and fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Local stylesheets -->
+    <link rel="stylesheet" href="./styles/base-styles.css" type="text/css">
+    <link rel="stylesheet" href="./styles/responsive-styles.css" type="text/css">
+    <link rel="stylesheet" href="./styles/font-styles.css" type="text/css">
+    <link rel="stylesheet" href="./styles/debug-styles.css" type="text/css">
+
+    <!--  Javascript imports -->
+    <script src="./scripts/script.js" type="text/javascript"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<!--IMPORTANT NOTE!! PLEASE READ!! -->
+<!-- add debug to classlist to enable debug view -->
+<body class="fade-in ">
+
+<!-- Header Section -->
+<div class="header-container">
+    <h1 class="header-title header-title-font">Ryuukae's GitHub Pages</h1>
+</div>
+
+<!-- SubHeader Section -->
+<div class="subheader-container fade-in ">
+    <p class="subheader subheader-title-font no-top-margin">
+        <i class="fas fa-book-open"></i> An active directory/listing of the GitHub pages written <br>
+        <span style="padding-left: 40px;">
+                by <a href="https://www.github.com/Ryuukae" style="color: var(--blue-1);"><i>Adam Ross DeStafeno</i></a>
+                (aka Ryuukae).
+            </span>
+    </p>
+
+    <!-- Divider Line -->
+    <span class="subheader subheader-title-font" style="display: block; border-bottom: 1.5px solid rgba(255, 255, 255, .3); margin: auto 49%"></span>
+
+    <!-- Contact details -->
+    <p class="subheader subheader-link-font"><i class="fas fa-envelope"></i> <a href="mailto:contact@adamrossdestafeno.dev" style="color: var(--blue-1);">contact@adamrossdestafeno.dev</a>
+    </p>
+    <p class="subheader subheader-link-font"><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/adam-ross-destafeno/" target="_blank" style="color:
+    var(--blue-1);">
+        @adam-ross-destafeno</a></p>
+    <p class="subheader subheader-link-font"><i class="fas fa-briefcase"></i> <a href="#" target="_blank" style="color: var(--blue-1);">Developer Portfolio</a></p>
+    <p class="subheader subheader-link-font"><i class="fab fa-github"></i> <a href="https://www.github.com/Ryuukae" target="_blank" style="color: var(--blue-1);">
+        @ryuukae</a></p>
+</div>
+
+<!-- Repositories Section -->
+<div class="list-container">
+    <ul class="repo-list">
+
+        <!-- Repo 1 -->
+        <li class="repo-item repo-item-font fade-in" onclick="toggleDetails(this)">
+            <div class="list-item-container">
+                <div>
+                    <span class="repo-name repo-name-font">Simple-FAQ-Page</span>
+                    <p class="repo-description repo-description-font">A responsive FAQ component designed to showcase clean and minimalist aesthetics, adaptability across
+                        various screen sizes, smooth animations for an enhanced user experience, and accessibility features.
+                        Key Features include a clean and minimalist design responsive layout for different screen sizes,
+                        smooth animations for improved user interaction, and accessibility considerations.</p>
+                </div>
+                <div class="repo-links-container">
+                    <a href="https://ryuukae.io/simple-faq-page/src" target="_blank"><i class="fas fa-link"></i> GitHub Pages</a>
+                    <a href="https://github.com/ryuukae/simple-faq-page" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+                    <i class="fas fa-chevron-up repo-arrow repo-arrow-font"></i>
+                </div>
+            </div>
+            <div class="repo-image-container">
+                <img alt="Screenshot of the Simple-FAQ-Page site." src="resources/Simple%20FAQ%20Page%20Screenshot.jpg">
+            </div>
+        </li>
+
+        <!-- Repo 2 -->
+        <li class="repo-item repo-item-font fade-in" onclick="toggleDetails(this)">
+            <div class="list-item-container">
+                <div>
+                    <span class="repo-name repo-name-font">Multi-step.Registration.Form</span>
+                    <p class="repo-description repo-description-font">
+                        A comprehensive solution for implementing a multi-step registration form, this project exemplifies best practices in creating efficient and
+                        user-friendly account creation processes for web applications. The implementation focuses on modular architecture, multi-screen design, real-time form
+                        validation, progressive tracking, and responsive UI, while incorporating accessibility features.</p>
+                </div>
+                <div class="repo-links-container">
+                    <a href="https://ryuukae.io/Multi-step.Registration.Form/src/" target="_blank"><i class="fas fa-link"></i> GitHub Pages</a>
+                    <a href="https://github.com/Ryuukae/Multi-step.Registration.Form" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+                    <i class="fas fa-chevron-up repo-arrow repo-arrow-font"></i>
+                </div>
+            </div>
+            <div class="repo-image-container">
+                <img alt="Screenshot of the Multi-step.Registration.Form site." src="resources/Multi-Step%20Registration%20Form%20Screenshot.jpg">
+            </div>
+        </li>
+
+        <!-- Repo 3 -->
+        <li class="repo-item repo-item-font fade-in" onclick="toggleDetails(this)">
+            <div class="list-item-container">
+                <div>
+                    <span class="repo-name repo-name-font">To-Do.List</span>
+                    <p class="repo-description repo-description-font">A simple to-do list application, this project demonstrates basic task management functionality. It
+                        allows users to add, and delete tasks through an aesthetic interface, providing a straightforward interface for organizing daily activities. The
+                        page saves the user's tasks to local storage so that the users may keep their tasks upon leaving or refreshing the page.</p>
+                </div>
+                <div class="repo-links-container">
+                    <a href="https://ryuukae.io/To-Do.List" target="_blank"><i class="fas fa-link"></i> GitHub Pages</a>
+                    <a href="https://github.com/ryuukae/To-Do.List" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+                    <i class="fas fa-chevron-up repo-arrow repo-arrow-font"></i>
+                </div>
+            </div>
+            <div class="repo-image-container">
+                <img alt="Screenshot of the To-Do.List's site." src="resources/To-Do.List%20Screenshot.jpg">
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

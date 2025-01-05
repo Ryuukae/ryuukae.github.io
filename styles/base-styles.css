@@ -1,0 +1,204 @@
+/* base-styles.css */
+@import url('keyframe-styles.css');
+@import url('color-pallet.css');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--background-color);
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+}
+
+.no-top-margin {
+    margin-top: 0;
+}                                                                                                                                                                                                     
+
+.header-container {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 50px 0;
+    position: sticky;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+    mask-image: linear-gradient(to bottom, transparent, white 10%, black 45%, white 55%, transparent);
+     -webkit-mask-image: linear-gradient(to bottom, transparent, white 5%, white 30%, black 45%, white 40%, white 79%, transparent);
+}
+
+.header-container::before {
+    animation: pulse 50s infinite, pulse-2 50s infinite;
+    background: radial-gradient(circle, var(--ripple-glow-4) 1%, var(--ripple-glow-5) 35%, transparent);
+    content: '';
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-100%);
+    width: 100%;
+}
+
+.header-title {
+    animation: rippleEffect 3s infinite;
+    margin: 0;
+    position: relative;
+
+}
+
+.subheader-container {
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 0.5s;
+    background: var(--repo-background);
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    box-shadow: 0 4px 8px var(--repo-hover-box-shadow);
+    height: auto; /* Ensure it takes its natural height */
+    mask-image: linear-gradient(to bottom, transparent, white 20%, black 45%, white 55%, transparent);
+    /*-webkit-mask-image: linear-gradient(to bottom, transparent, white 5%, white 30%, black 45%, white 40%, white 79%, transparent);*/
+    overflow: hidden; /* Hide overflow */
+    padding: 10px 0;
+    text-align: center;
+    top: 0;
+    z-index: 9;
+    transform: translateY(0);
+    transition: transform 0.3s ease-out, height 0.3s ease-out;;
+}
+
+.subheader {
+    margin: -20px 0 10px 0;
+    position: relative;
+    z-index: 10;
+    top: -5px;
+}
+
+.subheader-container p {
+    margin: 5px 0;
+}
+
+.list-container {
+    transform: translateY(-10px);
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 1280px;
+    padding: 1% 2%;
+    width: 100%;
+    z-index: 11;
+}
+
+.repo-list {
+    list-style: none;
+    padding: 0;
+}
+
+.repo-item {
+    background-color: var(--repo-item-background);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--repo-box-shadow);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+    padding: 15px;
+    transition: transform 0.2s, box-shadow 0.2s, border 0.1s, scale 0.2s;
+    width: 100%;
+}
+
+.repo-item:hover {
+    border: 2px solid var(--blue-5);
+    box-shadow: 0 4px 8px var(--repo-hover-box-shadow);
+    transform: translateY(-10px) scale(1.05);
+}
+
+.list-item-container {
+
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.repo-name {
+    max-width: 50%;
+}
+
+.repo-description {
+    flex-grow: 0;
+    margin-right: 15px;
+    text-indent: 0.5em;
+}
+
+.repo-links-container {
+    display: flex;
+    flex-basis: 30%;;
+    flex-shrink: 0;
+    gap: 20px;
+}
+
+.repo-links-container a {
+    align-items: center;
+    display: flex;
+    gap: 5px;
+}
+
+.repo-arrow {
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+.repo-arrow:hover {
+    transform: rotate(180deg);
+}
+
+.repo-image-container {
+    background-color: var(--repo-details-background);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--repo-hover-box-shadow);
+    margin-top: 10px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden; /* Hide overflow */
+    padding: 0 0 0 1em; /* Prevent padding from affecting layout when closed */
+    transition: max-height 1s ease-in-out, opacity 0.3s ease-in-out, visibility 0s linear 1s; /* Visibility changes instantly after delay */
+    visibility: hidden; /* Ensures the element is hidden from view */
+}
+
+.repo-image-container.open {
+    max-height: 500px; /* Adjust based on content needs */
+    opacity: 1;
+    padding: 20px; /* Adds padding only when element is open */
+    transition: max-height 1s ease-in-out, opacity 0.3s ease-in-out, visibility 0s linear 0s; /* No delay for visibility on open */
+    visibility: visible; /* Ensures the element becomes visible */
+}
+
+.repo-image-container img {
+    border: 2px solid var(--blue-5);
+    border-radius: 8px;
+    /*box-shadow: 0 0 10px var(--image-box-shadow);*/
+    height: auto;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.repo-image-container p {
+    color: var(--repo-details-text-color);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.repo-image-container .repo-description-full {
+    color: var(--repo-description-color);
+    font-size: 1em;
+    margin-top: 10px;
+}

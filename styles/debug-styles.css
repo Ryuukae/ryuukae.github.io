@@ -1,0 +1,22 @@
+/* debug-styles.css */
+/* This file contains styles that outline the main containers for debugging purposes. */
+body.debug .header-container {
+    border: 1px solid red;
+}
+
+body.debug .subheader-container {
+    border-top: 1px solid green !important;
+    border-bottom: 1px solid green !important;
+    border-left: 1px solid green !important;
+    border-right: 1px solid green !important;
+    mask-image: unset;
+    -webkit-mask-image: unset;
+}
+
+body.debug .list-container {
+    border: 1px solid blue;
+}
+
+body.debug .repo-list {
+    border: 1px solid purple;
+}

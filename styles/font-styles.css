@@ -1,0 +1,58 @@
+/* font-styles.css */
+@import url('color-pallet.css');
+
+.header-title-font {
+    color: var(--header-font-color);
+    font-size: clamp(2.1em, 4.5vw, 3em);
+}
+
+.repo-arrow-font {
+    color: var(--blue-1);
+    font-size: 1.45em;
+}
+
+.repo-description-font {
+    color: var(--subheader-font-color);
+    font-size: clamp(0.7em, 1.5vw, 0.9em);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: wrap;
+}
+
+.repo-item-font a {
+    color: var(--blue-1);
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(0.8rem, 2vw, 1.05rem);
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.repo-item-font a:hover {
+    text-decoration: underline;
+}
+
+.repo-name-font {
+    color: var(--blue-1);
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(1em, 2vw, 1.25em);
+    font-style: italic;
+    font-weight: 700;
+    letter-spacing: clamp(0.05em, 1vw, 0.1em);
+    overflow: hidden;
+    text-decoration: underline;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.subheader-link-font {
+    color: var(--repo-description-color);
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(0.8em, 2.5vw, 1.0em);
+}
+
+.subheader-title-font {
+    color: var(--repo-description-color);
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(0.8em, 2.5vw, 1.2em);
+}
