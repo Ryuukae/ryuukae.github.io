@@ -20,12 +20,12 @@
     .repo-list {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 16px; /* Reduced gap */
     }
 
     .repo-item {
         margin: 0;
-        padding: 24px;
+        padding: 16px; /* Reduced padding */
         border-radius: 12px; /* enhanced card look */
     }
 
@@ -38,121 +38,107 @@
     .repo-name {
         max-width: 100%;
         display: block;
-        margin-bottom: 12px;
-        font-size: 1.6em; /* Increased for accessibility */
+        margin-bottom: 4px; /* Tighter gap to description */
+        font-size: 1.8em; /* Even larger for accessibility */
     }
 
     .repo-description {
         margin-right: 0;
-        font-size: 1.2em; /* Increased for accessibility */
-        line-height: 1.5;
+        margin-bottom: 8px; /* Tighter gap to links */
+        font-size: 1.3em; /* Even larger */
+        line-height: 1.4; /* Slightly tighter line height */
     }
 
     .repo-links-container {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 16px;
-        margin-top: 20px;
+        gap: 4px; /* Much tighter gap between links */
+        margin-top: 8px; /* Closer to description */
         width: 100%;
     }
 
     .repo-links-container a {
-        font-size: 1.2em; /* Increased touch target / readable font */
-        padding: 8px 0; /* Provide more vertical touch area */
+        font-size: 1.4em; /* Larger readable font */
+        padding: 4px 0; /* Slightly tighter vertical touch area */
     }
 
     .repo-arrow {
         align-self: center;
-        margin-top: 15px;
-        font-size: 2em; /* Much larger arrow for touch */
-        padding: 10px;
+        margin-top: 4px;
+        font-size: 2.2em; /* Extremely large arrow */
+        padding: 6px;
     }
 }
 
 /* Large Phones (Standard viewport width 428px - e.g., iPhone Pro Max) */
 @media (max-width: 428px) {
     .repo-item {
-        padding: 20px;
+        padding: 14px;
     }
     .repo-name {
-        font-size: 1.5em;
+        font-size: 1.7em;
     }
     .repo-description {
-        font-size: 1.15em;
+        font-size: 1.25em;
     }
     .repo-links-container a {
-        font-size: 1.15em;
-    }
-    .repo-links-container {
-        gap: 14px;
+        font-size: 1.35em;
     }
 }
 
 /* Medium Phones (Standard viewport width 414px - e.g., iPhone XR/11) */
 @media (max-width: 414px) {
-    .repo-item {
-        padding: 18px;
-    }
     .repo-name {
-        font-size: 1.45em;
-    }
-    .repo-links-container {
-        gap: 12px;
+        font-size: 1.6em;
     }
 }
 
 /* Medium Phones (Standard viewport width 390px - e.g., iPhone 12/13/14) */
 @media (max-width: 390px) {
-    .repo-item {
-        padding: 16px;
-    }
     .repo-name {
-        font-size: 1.4em;
+        font-size: 1.5em;
+    }
+    .repo-links-container a {
+        font-size: 1.3em;
     }
 }
 
 /* Standard Phones (Standard viewport width 375px - e.g., iPhone 6/7/8/SE) */
 @media (max-width: 375px) {
     .repo-item {
-        padding: 16px;
+        padding: 12px;
     }
     .repo-name {
-        font-size: 1.35em;
+        font-size: 1.4em;
     }
     .repo-description {
-        font-size: 1.1em;
+        font-size: 1.15em;
     }
     .repo-links-container a {
-        font-size: 1.1em;
-    }
-    .repo-links-container {
-        gap: 12px;
+        font-size: 1.2em;
     }
     .repo-arrow {
-        font-size: 1.8em;
+        font-size: 2em;
     }
 }
 
 /* Small Phones (Standard viewport width 320px - e.g., iPhone 5/SE Gen 1) */
 @media (max-width: 320px) {
     .repo-item {
-        padding: 14px;
+        padding: 10px;
     }
     .repo-name {
-        font-size: 1.25em;
+        font-size: 1.3em;
     }
     .repo-description {
-        font-size: 1.05em;
+        font-size: 1.1em;
     }
     .repo-links-container a {
-        font-size: 1.05em;
-    }
-    .repo-links-container {
-        gap: 10px;
+        font-size: 1.15em;
     }
     .repo-arrow {
-        font-size: 1.6em;
+        font-size: 1.8em;
     }
 }
 
