@@ -10,8 +10,17 @@ function toggleStickyScroll() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    const subheader = document.querySelector('.subheader-container');
+    const scrollThreshold = 50; // pixels to scroll before collapsing
+
     window.addEventListener('scroll', function () {
         toggleStickyScroll();
+
+        if (window.scrollY > scrollThreshold) {
+            subheader.classList.add('collapsed');
+        } else {
+            subheader.classList.remove('collapsed');
+        }
     });
 })
 

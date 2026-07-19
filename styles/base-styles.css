@@ -63,6 +63,7 @@ body {
     border-top: 1px solid transparent;
     box-shadow: 0 4px 8px var(--repo-hover-box-shadow);
     height: auto;
+    max-height: 500px;
     /*mask-image: linear-gradient(to bottom, transparent, white 20%, black 45%, white 55%, transparent);*/
     /*-webkit-mask-image: linear-gradient(to bottom, transparent, white 5%, white 30%, black 45%, white 40%, white 79%, transparent);*/
     overflow: hidden; /* Hide overflow */
@@ -71,7 +72,14 @@ body {
     top: 0;
     z-index: 9;
     transform: translateY(0);
-    transition: transform 0.3s ease-out, height 0.3s ease-out;;
+    transition: transform 0.3s ease-out, height 0.3s ease-out, max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out, margin 0.4s ease-out;
+}
+
+.subheader-container.collapsed {
+    max-height: 0;
+    opacity: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .subheader-container::after {
