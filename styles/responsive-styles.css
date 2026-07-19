@@ -20,12 +20,12 @@
     .repo-list {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 24px;
     }
 
     .repo-item {
         margin: 0;
-        padding: 20px;
+        padding: 24px;
         border-radius: 12px; /* enhanced card look */
     }
 
@@ -38,114 +38,133 @@
     .repo-name {
         max-width: 100%;
         display: block;
-        margin-bottom: 8px;
-        font-size: 1.4em;
+        margin-bottom: 12px;
+        font-size: 1.6em; /* Increased for accessibility */
     }
 
     .repo-description {
         margin-right: 0;
-        font-size: 1em;
+        font-size: 1.2em; /* Increased for accessibility */
+        line-height: 1.5;
     }
 
     .repo-links-container {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
-        margin-top: 15px;
+        gap: 16px;
+        margin-top: 20px;
         width: 100%;
+    }
+
+    .repo-links-container a {
+        font-size: 1.2em; /* Increased touch target / readable font */
+        padding: 8px 0; /* Provide more vertical touch area */
     }
 
     .repo-arrow {
         align-self: center;
-        margin-top: 10px;
-        font-size: 1.5em;
+        margin-top: 15px;
+        font-size: 2em; /* Much larger arrow for touch */
+        padding: 10px;
     }
 }
 
 /* Large Phones (Standard viewport width 428px - e.g., iPhone Pro Max) */
 @media (max-width: 428px) {
     .repo-item {
-        padding: 16px;
+        padding: 20px;
     }
     .repo-name {
-        font-size: 1.3em;
+        font-size: 1.5em;
     }
     .repo-description {
-        font-size: 0.95em;
+        font-size: 1.15em;
+    }
+    .repo-links-container a {
+        font-size: 1.15em;
     }
     .repo-links-container {
-        gap: 10px;
+        gap: 14px;
     }
 }
 
 /* Medium Phones (Standard viewport width 414px - e.g., iPhone XR/11) */
 @media (max-width: 414px) {
     .repo-item {
-        padding: 15px;
+        padding: 18px;
     }
     .repo-name {
-        font-size: 1.25em;
+        font-size: 1.45em;
     }
     .repo-links-container {
-        gap: 10px;
+        gap: 12px;
     }
 }
 
 /* Medium Phones (Standard viewport width 390px - e.g., iPhone 12/13/14) */
 @media (max-width: 390px) {
     .repo-item {
-        padding: 14px;
+        padding: 16px;
     }
     .repo-name {
-        font-size: 1.2em;
+        font-size: 1.4em;
     }
 }
 
 /* Standard Phones (Standard viewport width 375px - e.g., iPhone 6/7/8/SE) */
 @media (max-width: 375px) {
     .repo-item {
-        padding: 12px;
+        padding: 16px;
     }
     .repo-name {
-        font-size: 1.15em;
+        font-size: 1.35em;
     }
     .repo-description {
-        font-size: 0.9em;
+        font-size: 1.1em;
+    }
+    .repo-links-container a {
+        font-size: 1.1em;
     }
     .repo-links-container {
-        gap: 8px;
+        gap: 12px;
+    }
+    .repo-arrow {
+        font-size: 1.8em;
     }
 }
 
 /* Small Phones (Standard viewport width 320px - e.g., iPhone 5/SE Gen 1) */
 @media (max-width: 320px) {
     .repo-item {
-        padding: 10px;
+        padding: 14px;
     }
     .repo-name {
-        font-size: 1.1em;
+        font-size: 1.25em;
     }
     .repo-description {
-        font-size: 0.85em;
+        font-size: 1.05em;
+    }
+    .repo-links-container a {
+        font-size: 1.05em;
     }
     .repo-links-container {
-        gap: 6px;
+        gap: 10px;
     }
     .repo-arrow {
-        font-size: 1.2em;
+        font-size: 1.6em;
     }
 }
 
 /* Handle short viewports (landscape mobile) */
 @media (max-height: 480px) and (orientation: landscape) {
     .repo-item {
-        padding: 10px;
+        padding: 12px;
     }
     .repo-name {
-        font-size: 1.2em;
+        font-size: 1.4em;
     }
     .repo-description {
-        font-size: 0.9em;
+        font-size: 1.1em;
     }
 }
