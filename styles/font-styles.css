@@ -13,10 +13,11 @@
 
 .repo-description-font {
     color: var(--subheader-font-color);
-    font-size: clamp(0.7em, 1.5vw, 0.9em);
+    font-size: clamp(0.85em, 1.5vw, 0.95em);
+    line-height: 1.5;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: wrap;
+    white-space: normal;
 }
 
 .repo-item-font a {
@@ -35,12 +36,12 @@
 .repo-name-font {
     color: var(--blue-1);
     font-family: 'Roboto', sans-serif;
-    font-size: clamp(1em, 2vw, 1.25em);
-    font-style: italic;
+    font-size: clamp(1.1em, 2vw, 1.4em);
+    font-style: normal;
     font-weight: 700;
-    letter-spacing: clamp(0.05em, 1vw, 0.1em);
+    letter-spacing: clamp(0.02em, 1vw, 0.05em);
     overflow: hidden;
-    text-decoration: underline;
+    text-decoration: none;
     text-overflow: ellipsis;
     white-space: nowrap;
 }

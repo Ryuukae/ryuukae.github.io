@@ -112,7 +112,7 @@ body {
     flex-direction: column;
     margin: 0 auto;
     max-width: 1280px;
-    padding: 1% 2%;
+    padding: 2% 4%;
     width: 100%;
     z-index: 11;
 }
@@ -121,34 +121,34 @@ body {
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
 }
 
 .repo-item {
     background-color: var(--repo-item-background);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px var(--repo-box-shadow);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px var(--repo-box-shadow);
     display: flex;
     flex-direction: column;
     padding: 0;
-    transition: transform 0.2s, box-shadow 0.2s, border 0.1s, scale 0.2s;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), border 0.3s ease;
     width: 100%;
-    border: 2px solid transparent;
+    border: 1px solid rgba(255, 255, 255, 0.05);
     overflow: hidden;
 }
 
 .repo-item:focus-within,
 .repo-item:hover {
-    border: 2px solid var(--blue-5);
-    box-shadow: 0 4px 12px var(--repo-hover-box-shadow);
-    transform: translateY(-5px);
+    border: 1px solid var(--hover-border);
+    box-shadow: 0 10px 20px var(--repo-hover-box-shadow);
+    transform: translateY(-8px);
 }
 
 .list-item-container {
     display: flex;
     flex-direction: column;
-    padding: 15px;
+    padding: 24px;
     flex-grow: 1;
     justify-content: space-between;
 }
@@ -184,7 +184,7 @@ body {
     width: 100%;
     height: 200px;
     background-color: var(--repo-details-background);
-    border-bottom: 2px solid var(--blue-5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .repo-image-container img {
