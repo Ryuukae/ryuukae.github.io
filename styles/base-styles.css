@@ -170,7 +170,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: auto;
+    margin-bottom: 15px;
 }
 
 .repo-links-container a {
