@@ -38,7 +38,6 @@
     <!-- Local stylesheets -->
     <link rel="stylesheet" href="./src/styles/tailwind.css" type="text/css" />
     <link rel="stylesheet" href="./src/styles/base-styles.css" type="text/css" />
-    <link rel="stylesheet" href="./src/styles/responsive-styles.css" type="text/css" />
     <link rel="stylesheet" href="./src/styles/font-styles.css" type="text/css" />
     <link rel="stylesheet" href="./src/styles/debug-styles.css" type="text/css" />
 
@@ -101,8 +100,10 @@
     </div>
 
     <!-- Repositories Section -->
-    <div class="list-container">
-      <ul id="repo-list-container" class="repo-list"></ul>
+    <div
+      class="-translate-y-2.5 flex flex-col mx-auto max-w-[1280px] py-[1%] px-[2%] w-full z-[11]"
+    >
+      <ul id="repo-list-container" class="list-none p-0"></ul>
     </div>
   </body>
 </html>
