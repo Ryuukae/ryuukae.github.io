@@ -22,14 +22,11 @@
       "stylelint --fix",
       "prettier --write"
     ],
-    "*.html": [
-      "html-validate",
+    "*.{html,css,json,md}": [
       "prettier --write"
     ],
-    "*.{json,md}": [
-      "prettier --write"
-    ],
-    "*": [
+    "*.{js,css,html,json,md}": [
+      "cspell --no-must-find-files",
       "secretlint"
     ]
   },
