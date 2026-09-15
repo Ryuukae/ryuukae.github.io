@@ -1,3 +1,4 @@
+import '../styles/tailwind.css';
 import { repositories } from './data/repositories.js';
 import { RepoCardFactory } from './components/RepoCardFactory.js';
 import { HeaderController } from './controllers/HeaderController.js';

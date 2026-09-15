@@ -38,7 +38,6 @@
     <!-- Local stylesheets -->
     <link rel="stylesheet" href="./src/styles/tailwind.css" type="text/css" />
     <link rel="stylesheet" href="./src/styles/base-styles.css" type="text/css" />
-    <link rel="stylesheet" href="./src/styles/responsive-styles.css" type="text/css" />
     <link rel="stylesheet" href="./src/styles/font-styles.css" type="text/css" />
     <link rel="stylesheet" href="./src/styles/debug-styles.css" type="text/css" />
 
@@ -59,9 +58,9 @@
       <p class="subheader subheader-title-font no-top-margin">
         <i class="fas fa-book-open"></i> An active directory/listing of the GitHub pages written
         <br />
-        <span style="padding-left: 40px">
+        <span id="subheader-author-prefix">
           by
-          <a href="https://www.github.com/Ryuukae" style="color: var(--blue-1)"
+          <a href="https://www.github.com/Ryuukae" id="subheader-author-link"
             ><i>Adam Ross DeStafeno</i></a
           >
           (aka Ryuukae).
@@ -69,19 +68,12 @@
       </p>
 
       <!-- Divider Line -->
-      <span
-        class="subheader subheader-title-font"
-        style="
-          display: block;
-          border-bottom: 1.5px solid rgba(255, 255, 255, 0.3);
-          margin: auto 49%;
-        "
-      ></span>
+      <span class="subheader subheader-title-font" id="subheader-divider"></span>
 
       <!-- Contact details -->
       <p class="subheader subheader-link-font">
         <i class="fas fa-envelope"></i>
-        <a href="mailto:contact@adamrossdestafeno.dev" style="color: var(--blue-1)"
+        <a href="mailto:contact@adamrossdestafeno.dev" id="subheader-email-link"
           >contact@adamrossdestafeno.dev</a
         >
       </p>
@@ -90,26 +82,28 @@
         <a
           href="https://www.linkedin.com/in/adam-ross-destafeno/"
           target="_blank"
-          style="color: var(--blue-1)"
+          id="subheader-linkedin-link"
         >
           @adam-ross-destafeno</a
         >
       </p>
       <p class="subheader subheader-link-font">
         <i class="fas fa-briefcase"></i>
-        <a href="#" target="_blank" style="color: var(--blue-1)">Developer Portfolio</a>
+        <a href="#" target="_blank" id="subheader-portfolio-link">Developer Portfolio</a>
       </p>
       <p class="subheader subheader-link-font">
         <i class="fab fa-github"></i>
-        <a href="https://www.github.com/Ryuukae" target="_blank" style="color: var(--blue-1)">
+        <a href="https://www.github.com/Ryuukae" target="_blank" id="subheader-github-link">
           @ryuukae</a
         >
       </p>
     </div>
 
     <!-- Repositories Section -->
-    <div class="list-container">
-      <ul id="repo-list-container" class="repo-list"></ul>
+    <div
+      class="-translate-y-2.5 flex flex-col mx-auto max-w-[1280px] py-[1%] px-[2%] w-full z-[11]"
+    >
+      <ul id="repo-list-container" class="list-none p-0"></ul>
     </div>
   </body>
 </html>
