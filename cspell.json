@@ -1,0 +1,19 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "Adam",
+    "Ross",
+    "DeStafeno",
+    "Ryuukae",
+    "Vite",
+    "Vitest",
+    "Tailwindcss",
+    "stylelint",
+    "htmlvalidate",
+    "secretlint",
+    "commitlint",
+    "Dependabot"
+  ],
+  "ignorePaths": ["node_modules/**", "dist/**", "package-lock.json", "**/*.png", "**/*.jpg"]
+}
