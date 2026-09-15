@@ -8,6 +8,7 @@
       }
     ],
     "no-descending-specificity": null,
-    "font-family-no-missing-generic-family-keyword": null
+    "font-family-no-missing-generic-family-keyword": null,
+    "color-function-notation": null
   }
 }
