@@ -11,6 +11,7 @@ body.debug .subheader-container {
   border-left: 1px solid green !important;
   border-right: 1px solid green !important;
   mask-image: unset;
+  mask-image: unset;
 }
 
 body.debug .list-container {
