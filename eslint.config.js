@@ -13,6 +13,7 @@ export default [
         document: 'readonly',
         console: 'readonly',
         process: 'readonly',
+        Event: 'readonly',
       },
     },
     rules: {
