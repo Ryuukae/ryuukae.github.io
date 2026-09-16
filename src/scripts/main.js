@@ -3,8 +3,12 @@ import { repositories } from './data/repositories.js';
 import { RepoCardFactory } from './components/RepoCardFactory.js';
 import { HeaderController } from './controllers/HeaderController.js';
 import { AccordionController } from './controllers/AccordionController.js';
+import { initializeNetworkBackground } from './components/NetworkBackground.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize Cyber-Glass Network Background
+  initializeNetworkBackground();
+
   // 1. Render Portfolio Items
   const listContainer = document.getElementById('repo-list-container');
   if (listContainer) {
