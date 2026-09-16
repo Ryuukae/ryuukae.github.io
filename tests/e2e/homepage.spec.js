@@ -6,13 +6,14 @@ test.describe('GitHub Pages Home', () => {
   });
 
   test('has title and header', async ({ page }) => {
-    // Check page title
-    await expect(page).toHaveTitle(/Ryuukae's GitHub Pages/i);
+    await expect(page).toHaveTitle(/Ryuukae's GitHub Pages/);
+    await expect(page.locator('h1.header-title')).toHaveText(/Ryuukae's GitHub Pages/);
+  });
 
-    // Check header text
-    const header = page.locator('.header-title');
-    await expect(header).toBeVisible();
-    await expect(header).toContainText(/Ryuukae's GitHub Pages/i);
+  test('visual regression: homepage layout', async ({ page }) => {
+    // Wait for the fade-in animations to complete
+    await page.waitForTimeout(2000);
+    await expect(page).toHaveScreenshot('homepage-baseline.png', { fullPage: true });
   });
 
   test('accordion functionality', async ({ page }) => {
