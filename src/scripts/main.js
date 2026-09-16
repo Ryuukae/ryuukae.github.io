@@ -3,8 +3,12 @@ import { repositories } from './data/repositories.js';
 import { RepoCardFactory } from './components/RepoCardFactory.js';
 import { HeaderController } from './controllers/HeaderController.js';
 import { AccordionController } from './controllers/AccordionController.js';
+import { initializeHeaderNetwork } from './components/HeaderNetwork.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize Header Starry Network Background
+  initializeHeaderNetwork();
+
   // 1. Render Portfolio Items
   const listContainer = document.getElementById('repo-list-container');
   if (listContainer) {
