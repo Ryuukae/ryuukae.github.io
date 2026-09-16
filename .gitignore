@@ -1,5 +1,13 @@
-/vh/
-/.idea/
-/codealike.json
-/package.json
 /.history/
+/.idea/
+/.vscode/
+/vh/
+/codealike.json
+node_modules/
+commit
+dist/
+.env
+/commit.rules.md
+playwright-report
+coverage/
+test-results

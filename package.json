@@ -1,0 +1,64 @@
+{
+  "name": "Github-Pages-Home",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "vite build",
+    "preview": "vite preview",
+    "dev": "vite",
+    "lint": "eslint . && stylelint \"src/**/*.css\" && html-validate \"*.html\"",
+    "spellcheck": "cspell \"**\"",
+    "secrets": "secretlint \"**/*\"",
+    "format": "prettier --write .",
+    "test:unit": "vitest run",
+    "test:unit:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test": "npm run test:unit && npm run test:e2e",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.css": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{html,css,json,md}": [
+      "prettier --write"
+    ],
+    "*.{js,css,html,json,md}": [
+      "cspell --no-must-find-files",
+      "secretlint"
+    ]
+  },
+  "private": true,
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.2",
+    "@commitlint/config-conventional": "^21.2.2",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.63.0",
+    "@secretlint/secretlint-rule-preset-recommend": "^13.0.5",
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitest/coverage-v8": "^5.0.1",
+    "cspell": "^10.3.2",
+    "eslint": "^10.10.0",
+    "eslint-config-prettier": "^10.1.8",
+    "html-validate": "^11.15.0",
+    "husky": "^9.1.7",
+    "jsdom": "^30.0.1",
+    "lint-staged": "^17.5.1",
+    "prettier": "^3.9.6",
+    "secretlint": "^13.0.5",
+    "stylelint": "^17.15.0",
+    "stylelint-config-standard": "^40.0.0",
+    "stylelint-config-tailwindcss": "^1.0.1",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.3.0",
+    "vitest": "^5.0.1"
+  },
+  "type": "module"
+}
