@@ -8,3 +8,6 @@ commit
 dist/
 .env
 /commit.rules.md
+playwright-report
+coverage/
+test-results

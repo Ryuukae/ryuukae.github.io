@@ -1,22 +1,21 @@
 /* debug-styles.css */
 
-/* This file contains styles that outline the main containers for debugging purposes. */
+/* This file contains styles that outline the main containers for debugging purposes.
+   Add the class "debug" to the <body> tag to enable this view. */
+
 body.debug .header-container {
-  border: 1px solid red;
+  outline: 2px solid red !important;
 }
 
 body.debug .subheader-container {
-  border-top: 1px solid green !important;
-  border-bottom: 1px solid green !important;
-  border-left: 1px solid green !important;
-  border-right: 1px solid green !important;
-  mask-image: unset;
+  outline: 2px solid green !important;
+  mask-image: none !important;
 }
 
-body.debug .list-container {
-  border: 1px solid blue;
+body.debug #repo-list-container {
+  outline: 2px solid purple !important;
 }
 
-body.debug .repo-list {
-  border: 1px solid purple;
+body.debug .repo-item {
+  outline: 2px solid yellow !important;
 }
