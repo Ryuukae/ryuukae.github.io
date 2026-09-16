@@ -4,6 +4,25 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar for professional pop */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(82, 139, 141, 0.5); /* Soft teal */
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-1); /* Bright teal on hover */
 }
 
 body {
@@ -11,7 +30,8 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .no-top-margin {
@@ -22,7 +42,7 @@ body {
   background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
   border-bottom: 1px solid transparent;
   border-top: 1px solid transparent;
-  box-shadow: 0 4px 8px rgb(0, 0, 0, 30%);
+  box-shadow: 0 4px 12px rgb(0, 0, 0, 50%);
   box-sizing: border-box;
   overflow: hidden;
   padding: 50px 0;
@@ -31,17 +51,6 @@ body {
   top: 0;
   width: 100%;
   z-index: 20;
-  mask-image: linear-gradient(to bottom, transparent, white 10%, black 45%, white 55%, transparent);
-  mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    white 5%,
-    white 30%,
-    black 45%,
-    white 40%,
-    white 79%,
-    transparent
-  );
 }
 
 .header-container::before {
@@ -67,51 +76,22 @@ body {
   animation: ripple-effect 3s infinite;
   margin: 0;
   position: relative;
+  text-shadow:
+    0 0 15px rgba(82, 139, 141, 0.8),
+    0 0 30px rgba(82, 139, 141, 0.4); /* Deep neon glow */
 }
 
 .subheader-container {
   animation: fade-in 1.5s ease forwards;
-  animation-delay: 0.5s;
-
-  /* background: var(--repo-background); */
-  background: transparent;
-  border-bottom: 1px solid transparent;
-  border-top: 1px solid transparent;
-  box-shadow: 0 4px 8px var(--repo-hover-box-shadow);
-  height: auto;
-
-  /* mask-image: linear-gradient(to bottom, transparent, white 20%, black 45%, white 55%, transparent); */
-
-  /* -webkit-mask-image: linear-gradient(to bottom, transparent, white 5%, white 30%, black 45%, white 40%, white 79%, transparent); */
-  overflow: hidden; /* Hide overflow */
-  padding: 10px 0;
-  text-align: center;
-  top: 0;
+  animation-delay: 0.2s;
+  opacity: 0;
   z-index: 9;
-  transform: translateY(0);
-  transition:
-    transform 0.3s ease-out,
-    height 0.3s ease-out;
-}
-
-.subheader-container::after {
-  background: var(--repo-background);
-  border: solid 5px var(--blue-5);
-  mask-image: linear-gradient(to bottom, transparent, white 20%, black 45%, white 55%, transparent);
-  content: '';
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 8;
 }
 
 .subheader {
-  margin: -20px 0 10px;
+  margin: 0;
   position: relative;
   z-index: 10;
-  top: -5px;
 }
 
 .subheader-container p {
