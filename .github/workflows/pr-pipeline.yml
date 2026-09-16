@@ -1,0 +1,96 @@
+name: PR-Pipeline
+
+on:
+  pull_request:
+    branches: ['main']
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-static:
+    name: Static Analysis & Linting
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Validate GitHub Actions Workflow Syntax (actionlint)
+        uses: reviewdog/action-actionlint@v1
+        with:
+          fail_level: error
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Linters (ESLint, Stylelint, HTML-Validate)
+        run: npm run lint
+      - name: Run Prettier formatting check
+        run: npx prettier --check .
+      - name: Run Secretlint
+        run: npm run secrets
+      - name: Run Spellcheck
+        run: npm run spellcheck
+
+  validate-unit:
+    name: Unit Tests & Coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Vitest Unit Tests
+        run: npm run test:unit
+
+  validate-e2e:
+    name: E2E Tests & Visual Audits
+    needs: [validate-static, validate-unit]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Verify Production Build
+        run: npm run build
+      - name: Run Playwright E2E Tests & Visual Regression
+        run: npm run test:e2e
+      - name: Upload Playwright Test Report & Diffs
+        uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: playwright-e2e-report
+          path: playwright-report/
+          retention-days: 7
+
+  validate-codeql:
+    name: CodeQL Security Audit
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@v7
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: javascript
+          queries: security-extended,security-and-quality
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: '/language:javascript'
