@@ -37,10 +37,10 @@ describe('RepoCardFactory', () => {
     expect(links.length).toBe(2);
 
     expect(links[0].href).toBe('https://example.com/pages');
-    expect(links[0].textContent).toContain('GitHub Pages');
+    expect(links[0].textContent).toContain('Pages');
 
     expect(links[1].href).toBe('https://example.com/repo');
-    expect(links[1].textContent).toContain('GitHub Repository');
+    expect(links[1].textContent).toContain('Repo');
   });
 
   it('should include the image with correct src and alt', () => {

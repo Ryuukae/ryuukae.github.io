@@ -51,7 +51,7 @@ test.describe('GitHub Pages Home', () => {
     const firstRepo = page.locator('.repo-item').first();
     await expect(firstRepo).toBeVisible();
 
-    const repoLink = firstRepo.locator('a:has-text("GitHub Repository")');
+    const repoLink = firstRepo.locator('a:has-text("Repo")');
     await expect(repoLink).toHaveAttribute('target', '_blank');
     await expect(repoLink).toHaveAttribute('href', /github\.com/);
   });

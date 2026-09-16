@@ -53,57 +53,60 @@
       <h1 class="header-title header-title-font">Ryuukae's GitHub Pages</h1>
     </div>
 
-    <!-- SubHeader Section -->
-    <div class="subheader-container fade-in">
-      <p class="subheader subheader-title-font no-top-margin">
-        <i class="fas fa-book-open"></i> An active directory/listing of the GitHub pages written
+    <!-- SubHeader Section (Contact Info) -->
+    <div
+      class="subheader-container mx-auto max-w-4xl mt-8 mb-12 p-6 bg-[var(--repo-background)]/80 backdrop-blur-md border border-[var(--blue-5)]/30 shadow-[0_4px_24px_rgba(0,0,0,0.5)] rounded-2xl flex flex-col items-center"
+    >
+      <p class="subheader subheader-title-font text-center mb-6">
+        <i class="fas fa-book-open text-[var(--blue-1)] mr-2"></i> An active directory/listing of
+        the GitHub pages written
         <br />
-        <span id="subheader-author-prefix">
+        <span class="mt-2 inline-block">
           by
-          <a href="https://www.github.com/Ryuukae" id="subheader-author-link"
-            ><i>Adam Ross DeStafeno</i></a
+          <a
+            href="https://www.github.com/Ryuukae"
+            class="text-[var(--blue-1)] font-bold hover:text-[var(--blue-5)] transition-colors"
+            >Adam Ross DeStafeno</a
           >
           (aka Ryuukae).
         </span>
       </p>
 
-      <!-- Divider Line -->
-      <span class="subheader subheader-title-font" id="subheader-divider"></span>
-
-      <!-- Contact details -->
-      <p class="subheader subheader-link-font">
-        <i class="fas fa-envelope"></i>
-        <a href="mailto:contact@adamrossdestafeno.dev" id="subheader-email-link"
-          >contact@adamrossdestafeno.dev</a
+      <!-- Contact Pills -->
+      <div class="flex flex-wrap justify-center items-center gap-4 w-full">
+        <a
+          href="mailto:contact@adamrossdestafeno.dev"
+          class="flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--blue-900)]/20 border border-[var(--blue-5)]/30 text-[var(--blue-1)] hover:bg-[var(--blue-5)] hover:text-white hover:-translate-y-1 hover:shadow-[0_4px_12px_rgba(82,139,141,0.4)] transition-all duration-300 text-sm font-medium"
         >
-      </p>
-      <p class="subheader subheader-link-font">
-        <i class="fab fa-linkedin"></i>
+          <i class="fas fa-envelope"></i> Email
+        </a>
         <a
           href="https://www.linkedin.com/in/adam-ross-destafeno/"
           target="_blank"
-          id="subheader-linkedin-link"
+          class="flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--blue-900)]/20 border border-[var(--blue-5)]/30 text-[var(--blue-1)] hover:bg-[var(--blue-5)] hover:text-white hover:-translate-y-1 hover:shadow-[0_4px_12px_rgba(82,139,141,0.4)] transition-all duration-300 text-sm font-medium"
         >
-          @adam-ross-destafeno</a
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a
+          href="#"
+          target="_blank"
+          class="flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--blue-900)]/20 border border-[var(--blue-5)]/30 text-[var(--blue-1)] hover:bg-[var(--blue-5)] hover:text-white hover:-translate-y-1 hover:shadow-[0_4px_12px_rgba(82,139,141,0.4)] transition-all duration-300 text-sm font-medium"
         >
-      </p>
-      <p class="subheader subheader-link-font">
-        <i class="fas fa-briefcase"></i>
-        <a href="#" target="_blank" id="subheader-portfolio-link">Developer Portfolio</a>
-      </p>
-      <p class="subheader subheader-link-font">
-        <i class="fab fa-github"></i>
-        <a href="https://www.github.com/Ryuukae" target="_blank" id="subheader-github-link">
-          @ryuukae</a
+          <i class="fas fa-briefcase"></i> Developer Portfolio
+        </a>
+        <a
+          href="https://www.github.com/Ryuukae"
+          target="_blank"
+          class="flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--blue-900)]/20 border border-[var(--blue-5)]/30 text-[var(--blue-1)] hover:bg-[var(--blue-5)] hover:text-white hover:-translate-y-1 hover:shadow-[0_4px_12px_rgba(82,139,141,0.4)] transition-all duration-300 text-sm font-medium"
         >
-      </p>
+          <i class="fab fa-github"></i> @ryuukae
+        </a>
+      </div>
     </div>
 
-    <!-- Repositories Section -->
-    <div
-      class="-translate-y-2.5 flex flex-col mx-auto max-w-[1280px] py-[1%] px-[2%] w-full z-[11]"
-    >
-      <ul id="repo-list-container" class="list-none p-0"></ul>
+    <!-- Repositories Section (2-Column Grid) -->
+    <div class="flex flex-col mx-auto max-w-[1280px] py-[1%] px-[2%] w-full z-[11]">
+      <ul id="repo-list-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 list-none p-0"></ul>
     </div>
   </body>
 </html>
