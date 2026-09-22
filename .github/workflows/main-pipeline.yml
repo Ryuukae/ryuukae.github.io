@@ -1,4 +1,4 @@
-name: Main-Pipeline
+name: Main Pipeline (Test, Release, Deploy)
 
 on:
   push:
@@ -20,34 +20,32 @@ jobs:
     name: Static Analysis & Linting
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-      - name: Validate GitHub Actions Workflow Syntax
+      - uses: actions/checkout@v4
+      - name: Validate GitHub Actions Workflow Syntax (actionlint)
         uses: reviewdog/action-actionlint@v1
         with:
-          fail_level: error
+          fail_on_error: true
       - name: Setup Node.js
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
-      - name: Run Linters
+      - name: Verify Prettier Formatting (src/**/*.js, css, html)
+        run: npm run format:check
+      - name: Run Linters (ESLint, Stylelint, HTML-Validate, Spellcheck, Secrets)
         run: npm run lint
-      - name: Run Prettier formatting check
-        run: npx prettier --check .
-      - name: Run Secretlint
-        run: npm run secrets
-      - name: Run Spellcheck
-        run: npm run spellcheck
+      - name: Run npm audit (High+ Vulnerabilities)
+        run: npm run audit
 
   validate-unit:
     name: Unit Tests & Coverage
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v4
       - name: Setup Node.js
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'npm'
@@ -55,15 +53,20 @@ jobs:
         run: npm ci
       - name: Run Vitest Unit Tests
         run: npm run test:unit
+      - name: Generate Vitest Coverage Report
+        run: npm run test:coverage
+      - name: Report Code Coverage
+        uses: davelosert/vitest-coverage-report-action@v2
+        if: success()
 
   validate-e2e:
     name: E2E Tests & Visual Audits
     needs: [validate-static, validate-unit]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v4
       - name: Setup Node.js
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'npm'
@@ -73,10 +76,21 @@ jobs:
         run: npx playwright install --with-deps
       - name: Verify Production Build
         run: npm run build
-      - name: Run Playwright E2E Tests
+      - name: Lighthouse CI Audit
+        run: npx lhci autorun
+      - name: Upload Lighthouse CI Reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-audit-reports
+          path: .lighthouseci/
+          retention-days: 7
+      - name: Audit Production Bundle Size (size-limit)
+        run: npm run size
+      - name: Run Playwright E2E Tests & Visual Regression
         run: npm run test:e2e
-      - name: Upload Playwright Test Report & Traces (On Failure)
-        uses: actions/upload-artifact@v7
+      - name: Upload Playwright Test Report & Diffs
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: playwright-e2e-report
@@ -91,14 +105,14 @@ jobs:
       contents: read
       security-events: write
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v4
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v4
+        uses: github/codeql-action/init@v3
         with:
           languages: javascript
           queries: security-extended,security-and-quality
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v4
+        uses: github/codeql-action/analyze@v3
         with:
           category: '/language:javascript'
 
@@ -115,17 +129,17 @@ jobs:
     steps:
       - name: Generate GitHub App Token
         id: generate-token
-        uses: actions/create-github-app-token@v3
+        uses: actions/create-github-app-token@v1
         with:
-          client-id: ${{ secrets.APP_ID }}
+          app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ steps.generate-token.outputs.token }}
       - name: Setup Node.js
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'npm'
@@ -165,9 +179,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
       - name: Setup Node
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'npm'
@@ -176,11 +190,11 @@ jobs:
       - name: Build
         run: npm run build
       - name: Setup Pages
-        uses: actions/configure-pages@v6
+        uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@v4

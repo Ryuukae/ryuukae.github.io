@@ -1,46 +1,83 @@
-name: PR-Pipeline
+name: Pull Request Pipeline
 
 on:
   pull_request:
-    branches: ['main']
+    branches: ['main', 'dev']
+    types: [opened, edited, synchronize, reopened]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  validate-static:
-    name: Static Analysis & Linting
+  enforce-branch-flow:
+    name: Enforce Main PR Source Branch
+    runs-on: ubuntu-latest
+    if: github.base_ref == 'main'
+    steps:
+      - name: Verify PR originates from dev
+        run: |
+          if [ "${{ github.head_ref }}" != "dev" ] && [[ ! "${{ github.head_ref }}" == dependabot/* ]]; then
+            echo "::error::Direct merges into 'main' are restricted. Pull requests targeting 'main' must originate from 'dev' or dependabot."
+            exit 1
+          fi
+          echo "PR source is '${{ github.head_ref }}'. Approved to proceed."
+
+  commitlint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-      - name: Validate GitHub Actions Workflow Syntax (actionlint)
-        uses: reviewdog/action-actionlint@v1
+      - uses: actions/checkout@v4
         with:
-          fail_level: error
+          fetch-depth: 0
       - name: Setup Node.js
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
-      - name: Run Linters (ESLint, Stylelint, HTML-Validate)
+      - name: Lint PR Commits
+        run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
+
+  dependency-review:
+    runs-on: ubuntu-latest
+    if: github.base_ref == 'main'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v4
+
+  validate-static:
+    name: Static Analysis & Linting
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate GitHub Actions Workflow Syntax (actionlint)
+        uses: reviewdog/action-actionlint@v1
+        with:
+          fail_on_error: true
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Verify Prettier Formatting (src/**/*.js, css, html)
+        run: npm run format:check
+      - name: Run Linters (ESLint, Stylelint, HTML-Validate, Spellcheck, Secrets)
         run: npm run lint
-      - name: Run Prettier formatting check
-        run: npx prettier --check .
-      - name: Run Secretlint
-        run: npm run secrets
-      - name: Run Spellcheck
-        run: npm run spellcheck
+      - name: Run npm audit (High+ Vulnerabilities)
+        run: npm run audit
 
   validate-unit:
     name: Unit Tests & Coverage
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v4
       - name: Setup Node.js
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'npm'
@@ -48,15 +85,20 @@ jobs:
         run: npm ci
       - name: Run Vitest Unit Tests
         run: npm run test:unit
+      - name: Generate Vitest Coverage Report
+        run: npm run test:coverage
+      - name: Report Code Coverage
+        uses: davelosert/vitest-coverage-report-action@v2
+        if: success()
 
   validate-e2e:
     name: E2E Tests & Visual Audits
     needs: [validate-static, validate-unit]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v4
       - name: Setup Node.js
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'npm'
@@ -66,10 +108,21 @@ jobs:
         run: npx playwright install --with-deps
       - name: Verify Production Build
         run: npm run build
+      - name: Lighthouse CI Audit
+        run: npx lhci autorun
+      - name: Upload Lighthouse CI Reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-audit-reports
+          path: .lighthouseci/
+          retention-days: 7
+      - name: Audit Production Bundle Size (size-limit)
+        run: npm run size
       - name: Run Playwright E2E Tests & Visual Regression
         run: npm run test:e2e
       - name: Upload Playwright Test Report & Diffs
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: playwright-e2e-report
@@ -84,13 +137,13 @@ jobs:
       contents: read
       security-events: write
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v4
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v4
+        uses: github/codeql-action/init@v3
         with:
           languages: javascript
           queries: security-extended,security-and-quality
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v4
+        uses: github/codeql-action/analyze@v3
         with:
           category: '/language:javascript'
