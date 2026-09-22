@@ -28,9 +28,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const src = imgTarget.getAttribute('data-src');
         const modal = document.getElementById('image-modal');
         const modalImg = document.getElementById('modal-image');
+
         if (modal && modalImg && src) {
-          modalImg.src = src;
-          modal.classList.remove('opacity-0', 'invisible');
+          try {
+            // Sanitize URL to prevent javascript: XSS (CodeQL mitigation)
+            const safeUrl = new URL(src, window.location.href);
+            if (safeUrl.protocol === 'http:' || safeUrl.protocol === 'https:') {
+              // codeql[js/xss-through-dom] - URL protocol is strictly validated above
+              modalImg.src = safeUrl.href;
+              modal.classList.remove('opacity-0', 'invisible');
+            }
+          } catch (e) {
+            console.warn('Invalid image URL:', src, e);
+          }
         }
       }
     });
