@@ -28,7 +28,10 @@
     "signingkey",
     "gpgsign",
     "treosh",
-    "lighthouserc"
+    "lighthouserc",
+    "unhovered",
+    "reinit",
+    "respawning"
   ],
   "ignorePaths": [
     "node_modules/**",
