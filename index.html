@@ -45,68 +45,106 @@
     <script src="./src/scripts/main.js" type="module"></script>
   </head>
 
-  <!--IMPORTANT NOTE!! PLEASE READ!! -->
-  <!-- add debug to classlist to enable debug view -->
   <body class="fade-in">
+    <!-- Cyber-Glass Network Background -->
+    <canvas id="network-canvas"></canvas>
+
     <!-- Header Section -->
-    <div class="header-container">
-      <h1 class="header-title header-title-font">Ryuukae's GitHub Pages</h1>
+    <div class="header-container relative">
+      <!-- Lighthouse Starry Network -->
+      <canvas id="header-canvas"></canvas>
+      <h1
+        class="header-title header-title-font text-cyan-400 font-extrabold tracking-wider drop-shadow-[0_0_25px_rgba(0,255,255,1)]"
+      >
+        Ryuukae's GitHub Pages
+      </h1>
     </div>
 
     <!-- SubHeader Section (Contact Info) -->
     <div
-      class="subheader-container mx-auto max-w-4xl mt-8 mb-12 p-6 bg-[var(--repo-background)]/80 backdrop-blur-md border border-[var(--blue-5)]/30 shadow-[0_4px_24px_rgba(0,0,0,0.5)] rounded-2xl flex flex-col items-center"
+      class="subheader-container mx-auto max-w-4xl mt-8 mb-12 p-6 bg-black/60 backdrop-blur-xl border border-cyan-500/30 shadow-[0_8px_32px_rgba(0,0,0,0.8)] rounded-3xl flex flex-col items-center animate-border-pulse"
     >
-      <p class="subheader subheader-title-font text-center mb-6">
-        <i class="fas fa-book-open text-[var(--blue-1)] mr-2"></i> An active directory/listing of
-        the GitHub pages written
+      <p class="subheader font-mono tracking-wide leading-relaxed text-center mb-8 text-gray-300">
+        <i
+          class="fas fa-book-open text-cyan-400 mr-2 drop-shadow-[0_0_8px_rgba(0,255,255,0.8)]"
+        ></i>
+        An active directory/listing of the GitHub pages written
         <br />
-        <span class="mt-2 inline-block">
+        <span class="mt-3 inline-block">
           by
           <a
             href="https://www.github.com/Ryuukae"
-            class="text-[var(--blue-1)] font-bold hover:text-[var(--blue-5)] transition-colors"
+            class="name-pulse-gradient italic font-bold px-1 drop-shadow-[0_0_8px_rgba(0,255,255,0.2)]"
             >Adam Ross DeStafeno</a
           >
-          (aka Ryuukae).
+          (aka
+          <span
+            class="name-pulse-gradient italic font-bold px-1 drop-shadow-[0_0_8px_rgba(0,255,255,0.2)]"
+            >Ryuukae</span
+          >).
         </span>
       </p>
 
       <!-- Contact Pills -->
-      <div class="flex flex-wrap justify-center items-center gap-4 w-full">
+      <div class="flex flex-wrap justify-center items-center gap-4 w-full group mt-4">
         <a
           href="mailto:contact@adamrossdestafeno.dev"
-          class="flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--blue-900)]/20 border border-[var(--blue-5)]/30 text-[var(--blue-1)] hover:bg-[var(--blue-5)] hover:text-white hover:-translate-y-1 hover:shadow-[0_4px_12px_rgba(82,139,141,0.4)] transition-all duration-300 text-sm font-medium"
+          class="spark-btn flex items-center gap-2 px-5 py-2.5 rounded-full border border-cyan-900/30 text-cyan-400 group-hover:opacity-50 hover:!opacity-100 hover:text-white hover:bg-cyan-900/30 hover:border-cyan-400/60 hover:shadow-[0_0_15px_rgba(0,255,255,0.2)] transition-all duration-500 ease-in-out text-sm font-medium"
         >
           <i class="fas fa-envelope"></i> Email
         </a>
         <a
           href="https://www.linkedin.com/in/adam-ross-destafeno/"
           target="_blank"
-          class="flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--blue-900)]/20 border border-[var(--blue-5)]/30 text-[var(--blue-1)] hover:bg-[var(--blue-5)] hover:text-white hover:-translate-y-1 hover:shadow-[0_4px_12px_rgba(82,139,141,0.4)] transition-all duration-300 text-sm font-medium"
+          class="spark-btn flex items-center gap-2 px-5 py-2.5 rounded-full border border-cyan-900/30 text-cyan-400 group-hover:opacity-50 hover:!opacity-100 hover:text-white hover:bg-cyan-900/30 hover:border-cyan-400/60 hover:shadow-[0_0_15px_rgba(0,255,255,0.2)] transition-all duration-500 ease-in-out text-sm font-medium"
         >
           <i class="fab fa-linkedin"></i> LinkedIn
         </a>
         <a
           href="#"
           target="_blank"
-          class="flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--blue-900)]/20 border border-[var(--blue-5)]/30 text-[var(--blue-1)] hover:bg-[var(--blue-5)] hover:text-white hover:-translate-y-1 hover:shadow-[0_4px_12px_rgba(82,139,141,0.4)] transition-all duration-300 text-sm font-medium"
+          class="spark-btn flex items-center gap-2 px-5 py-2.5 rounded-full border border-cyan-900/30 text-cyan-400 group-hover:opacity-50 hover:!opacity-100 hover:text-white hover:bg-cyan-900/30 hover:border-cyan-400/60 hover:shadow-[0_0_15px_rgba(0,255,255,0.2)] transition-all duration-500 ease-in-out text-sm font-medium"
         >
-          <i class="fas fa-briefcase"></i> Developer Portfolio
+          <i class="fas fa-briefcase"></i> Portfolio
         </a>
         <a
           href="https://www.github.com/Ryuukae"
           target="_blank"
-          class="flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--blue-900)]/20 border border-[var(--blue-5)]/30 text-[var(--blue-1)] hover:bg-[var(--blue-5)] hover:text-white hover:-translate-y-1 hover:shadow-[0_4px_12px_rgba(82,139,141,0.4)] transition-all duration-300 text-sm font-medium"
+          class="spark-btn flex items-center gap-2 px-5 py-2.5 rounded-full border border-cyan-900/30 text-cyan-400 group-hover:opacity-50 hover:!opacity-100 hover:text-white hover:bg-cyan-900/30 hover:border-cyan-400/60 hover:shadow-[0_0_15px_rgba(0,255,255,0.2)] transition-all duration-500 ease-in-out text-sm font-medium"
         >
-          <i class="fab fa-github"></i> @ryuukae
+          <i class="fab fa-github"></i> GitHub
         </a>
       </div>
     </div>
 
-    <!-- Repositories Section (2-Column Grid) -->
+    <!-- Repositories Section (2-Column Masonry) -->
     <div class="flex flex-col mx-auto max-w-[1280px] py-[1%] px-[2%] w-full z-[11]">
-      <ul id="repo-list-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 list-none p-0"></ul>
+      <ul id="repo-list-container" class="columns-1 md:columns-2 gap-6 list-none p-0"></ul>
+    </div>
+
+    <!-- Image Modal -->
+    <div
+      id="image-modal"
+      class="fixed inset-0 z-50 flex items-center justify-center opacity-0 invisible transition-all duration-300"
+    >
+      <!-- Blurred background -->
+      <div class="absolute inset-0 bg-black/70 backdrop-blur-md modal-close"></div>
+
+      <!-- Modal Content -->
+      <div class="relative z-10 max-w-[95vw] w-full max-h-[95vh] p-2 flex flex-col items-center">
+        <button
+          type="button"
+          class="absolute -top-2 -right-2 text-white hover:text-cyan-400 hover:scale-110 transition-all text-4xl modal-close cursor-pointer bg-black/50 rounded-full w-12 h-12 flex items-center justify-center border border-cyan-500/30 shadow-[0_0_15px_rgba(0,255,255,0.2)] z-20"
+        >
+          &times;
+        </button>
+        <img
+          id="modal-image"
+          src="data:,"
+          alt="Expanded preview"
+          class="max-w-full max-h-[95vh] object-contain border border-cyan-500/50 rounded-xl shadow-[0_0_30px_rgba(0,255,255,0.15)]"
+        />
+      </div>
     </div>
   </body>
 </html>
