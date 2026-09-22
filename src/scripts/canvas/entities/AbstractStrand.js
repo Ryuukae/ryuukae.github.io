@@ -1,4 +1,4 @@
-import { NetworkConfig as CONFIG } from './NetworkConfig.js';
+import { NetworkConfig as CONFIG } from '../config/NetworkConfig.js';
 import { Particle } from './Particle.js';
 
 /**

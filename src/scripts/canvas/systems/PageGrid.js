@@ -1,5 +1,5 @@
-import { NetworkConfig as CONFIG } from './NetworkConfig.js';
-import { getCircuitPath } from './NetworkUtils.js';
+import { NetworkConfig as CONFIG } from '../config/NetworkConfig.js';
+import { getCircuitPath } from '../utils/NetworkUtils.js';
 
 /**
  * Responsible for the static, vertical geometric circuit lines in the background.

@@ -1,5 +1,5 @@
-import { NetworkConfig as CONFIG } from './NetworkConfig.js';
-import { getCircuitPath } from './NetworkUtils.js';
+import { NetworkConfig as CONFIG } from '../config/NetworkConfig.js';
+import { getCircuitPath } from '../utils/NetworkUtils.js';
 
 /**
  * Manages the dynamic circuit animations triggered by button hovers.
