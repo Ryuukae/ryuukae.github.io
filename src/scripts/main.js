@@ -1,9 +1,9 @@
 import '../styles/tailwind.css';
 import { repositories } from './data/repositories.js';
-import { RepoCardFactory } from './components/RepoCardFactory.js';
+import { RepoCardFactory } from './ui/RepoCardFactory.js';
 import { AccordionController } from './controllers/AccordionController.js';
-import { NetworkBackground } from './components/NetworkBackground.js';
-import { HeaderNetwork } from './components/HeaderNetwork.js';
+import { NetworkBackground } from './canvas/orchestrators/NetworkBackground.js';
+import { HeaderNetwork } from './canvas/orchestrators/HeaderNetwork.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize Cyber-Glass Network Backgrounds
