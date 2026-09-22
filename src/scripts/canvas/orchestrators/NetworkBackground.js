@@ -1,6 +1,6 @@
-import { AmbientConstellation } from './animations/AmbientConstellation.js';
-import { PageGrid } from './animations/PageGrid.js';
-import { CircuitTracks } from './animations/CircuitTracks.js';
+import { AmbientConstellation } from '../systems/AmbientConstellation.js';
+import { PageGrid } from '../systems/PageGrid.js';
+import { CircuitTracks } from '../systems/CircuitTracks.js';
 
 /**
  * Orchestrator class for the network background animation system.

@@ -1,5 +1,5 @@
-import { AbstractStrand } from './animations/AbstractStrand.js';
-import { GeometricSphere } from './animations/GeometricSphere.js';
+import { AbstractStrand } from '../entities/AbstractStrand.js';
+import { GeometricSphere } from '../entities/GeometricSphere.js';
 
 /**
  * Orchestrator class for the header network animation system.
