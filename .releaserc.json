@@ -2,7 +2,27 @@
   "branches": ["main"],
   "plugins": [
     "@semantic-release/commit-analyzer",
-    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "preset": "conventionalcommits",
+        "presetConfig": {
+          "types": [
+            { "type": "feat", "section": "✨ Features", "hidden": false },
+            { "type": "fix", "section": "🐛 Bug Fixes", "hidden": false },
+            { "type": "perf", "section": "⚡ Performance Improvements", "hidden": false },
+            { "type": "style", "section": "🎨 Styling & UI Polish", "hidden": false },
+            { "type": "refactor", "section": "🏗️ Architecture & Refactoring", "hidden": false },
+            { "type": "build", "section": "📦 Build System & Dependencies", "hidden": false },
+            { "type": "ci", "section": "🛡️ CI/CD & Automation", "hidden": false },
+            { "type": "test", "section": "🧪 Testing & Coverage", "hidden": false },
+            { "type": "docs", "section": "📚 Documentation", "hidden": false },
+            { "type": "revert", "section": "⏪ Reverts", "hidden": false },
+            { "type": "chore", "hidden": true }
+          ]
+        }
+      }
+    ],
     "@semantic-release/changelog",
     [
       "@semantic-release/npm",
@@ -17,11 +37,6 @@
         "message": "chore(release): bump version to ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     ],
-    [
-      "@semantic-release/github",
-      {
-        "generateReleaseNotes": true
-      }
-    ]
+    "@semantic-release/github"
   ]
 }

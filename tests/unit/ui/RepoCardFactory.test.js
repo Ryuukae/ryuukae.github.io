@@ -1,5 +1,5 @@
-import { describe, it, expect, beforeEach } from 'vitest';
-import { RepoCardFactory } from '../../../src/scripts/components/RepoCardFactory.js';
+import { describe, it, expect } from 'vitest';
+import { RepoCardFactory } from '../../../src/scripts/ui/RepoCardFactory.js';
 
 describe('RepoCardFactory', () => {
   const mockRepo = {
@@ -37,18 +37,20 @@ describe('RepoCardFactory', () => {
     expect(links.length).toBe(2);
 
     expect(links[0].href).toBe('https://example.com/pages');
-    expect(links[0].textContent).toContain('Pages');
+    expect(links[0].textContent).toContain('Visit Site');
 
     expect(links[1].href).toBe('https://example.com/repo');
-    expect(links[1].textContent).toContain('Repo');
+    expect(links[1].textContent).toContain('Repository');
   });
 
-  it('should include the image with correct src and alt', () => {
+  it('should include the image with correct src, data-src, alt, and trigger class', () => {
     const card = RepoCardFactory.createCard(mockRepo);
 
     const img = card.querySelector('img');
     expect(img).not.toBeNull();
     expect(img.getAttribute('src')).toBe('test-image.png');
+    expect(img.getAttribute('data-src')).toBe('test-image.png');
     expect(img.getAttribute('alt')).toBe('Test Image Alt');
+    expect(img.classList.contains('repo-image-trigger')).toBe(true);
   });
 });

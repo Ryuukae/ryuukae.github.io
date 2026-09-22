@@ -1,0 +1,54 @@
+name: Update Visual Snapshots
+
+on:
+  workflow_dispatch: # Adds a "Run workflow" button in the GitHub Actions tab
+
+permissions:
+  contents: write # Required to allow the bot to push commits to your branch
+
+jobs:
+  update-snapshots:
+    name: Generate Linux E2E Snapshots
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+        with:
+          # Ensure we checkout the specific branch you trigger the workflow on
+          ref: ${{ github.ref }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Build Production Bundle
+        run: npm run build
+
+      - name: Update Visual Snapshots
+        run: npm run snapshots:renew
+
+      - name: Commit and Push Updated Snapshots
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Stage the snapshot files
+          git add tests/e2e/**/*-snapshots/*.png
+
+          # Check if there are actually any changes to commit
+          if ! git diff --staged --quiet; then
+            # Use --no-verify to safely bypass your Husky hooks for the bot
+            git commit --no-verify -m "test(e2e): update linux visual regression snapshots"
+            git push
+          else
+            echo "Snapshots are already up to date! No commit necessary."
+          fi

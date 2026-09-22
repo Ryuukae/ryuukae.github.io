@@ -1,0 +1,6 @@
+{
+  "**/*.js": ["eslint --fix", "prettier --write", "cspell --no-must-find-files"],
+  "**/*.css": ["stylelint --fix", "prettier --write", "cspell --no-must-find-files"],
+  "**/*.html": ["html-validate", "prettier --write", "cspell --no-must-find-files"],
+  "**/*.{json,md,yml}": ["prettier --write", "cspell --no-must-find-files"]
+}
