@@ -11,3 +11,10 @@ dist/
 playwright-report
 coverage/
 test-results
+.playwright-cli/
+.playwright-mcp/
+recordings/
+ui-concept-art.png
+animation design concept art.png
+roadmap
+.agignore

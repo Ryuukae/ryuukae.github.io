@@ -12,6 +12,8 @@
     "color-function-notation": null,
     "color-function-alias-notation": null,
     "alpha-value-notation": null,
-    "color-hex-length": null
+    "color-hex-length": null,
+    "property-no-vendor-prefix": null,
+    "value-no-vendor-prefix": null
   }
 }
