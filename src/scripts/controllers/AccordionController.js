@@ -1,8 +1,20 @@
+/**
+ * Controller for managing the accordion expanding behavior of repository cards.
+ * @author Adam Ross DeStafeno
+ * @version 1.0.0
+ */
 export class AccordionController {
+  /**
+   * Initializes the AccordionController.
+   * @param {string} containerId - The ID of the container element.
+   */
   constructor(containerId) {
     this.container = document.getElementById(containerId);
   }
 
+  /**
+   * Binds click events to the container for event delegation.
+   */
   init() {
     if (!this.container) return;
 
@@ -19,6 +31,10 @@ export class AccordionController {
     });
   }
 
+  /**
+   * Toggles the visibility of a repository card's details.
+   * @param {HTMLElement} element - The repository card element.
+   */
   toggleDetails(element) {
     const repoImage = element.querySelector('.repo-image-container');
     const arrow = element.querySelector('.repo-arrow');

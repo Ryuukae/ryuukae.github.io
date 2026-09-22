@@ -1,4 +1,4 @@
-name: Main-Pipeline
+name: Main Pipeline (Test, Release, Deploy)
 
 on:
   push:
@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: Validate GitHub Actions Workflow Syntax
+      - name: Validate GitHub Actions Workflow Syntax (actionlint)
         uses: reviewdog/action-actionlint@v1
         with:
           fail_level: error
@@ -32,14 +32,12 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
-      - name: Run Linters
+      - name: Verify Prettier Formatting (src/**/*.js, css, html)
+        run: npm run format:check
+      - name: Run Linters (ESLint, Stylelint, HTML-Validate, Spellcheck, Secrets)
         run: npm run lint
-      - name: Run Prettier formatting check
-        run: npx prettier --check .
-      - name: Run Secretlint
-        run: npm run secrets
-      - name: Run Spellcheck
-        run: npm run spellcheck
+      - name: Run npm audit (High+ Vulnerabilities)
+        run: npm run audit
 
   validate-unit:
     name: Unit Tests & Coverage
@@ -55,6 +53,11 @@ jobs:
         run: npm ci
       - name: Run Vitest Unit Tests
         run: npm run test:unit
+      - name: Generate Vitest Coverage Report
+        run: npm run test:coverage
+      - name: Report Code Coverage
+        uses: davelosert/vitest-coverage-report-action@v2
+        if: success()
 
   validate-e2e:
     name: E2E Tests & Visual Audits
@@ -73,9 +76,17 @@ jobs:
         run: npx playwright install --with-deps
       - name: Verify Production Build
         run: npm run build
-      - name: Run Playwright E2E Tests
+      - name: Lighthouse CI Audit
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: './.lighthouserc.json'
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+      - name: Audit Production Bundle Size (size-limit)
+        run: npm run size
+      - name: Run Playwright E2E Tests & Visual Regression
         run: npm run test:e2e
-      - name: Upload Playwright Test Report & Traces (On Failure)
+      - name: Upload Playwright Test Report & Diffs
         uses: actions/upload-artifact@v7
         if: failure()
         with:
@@ -137,7 +148,7 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.generate-token.outputs.token }}
       - name: Import GPG Key for Verified Signatures
-        uses: crazy-max/ghaction-import-gpg@v6
+        uses: crazy-max/ghaction-import-gpg@v7
         if: env.GPG_KEY != ''
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
@@ -178,7 +189,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v6
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: './dist'
       - name: Deploy to GitHub Pages
