@@ -1,4 +1,14 @@
+/**
+ * Factory class for creating repository card DOM elements.
+ * @author Adam Ross DeStafeno
+ * @version 1.0.0
+ */
 export class RepoCardFactory {
+  /**
+   * Creates a repository card element.
+   * @param {object} repo - The repository data object.
+   * @returns {HTMLLIElement} The generated list item element.
+   */
   static createCard(repo) {
     const li = document.createElement('li');
     // Retaining 'repo-item' class specifically for AccordionController.js click events

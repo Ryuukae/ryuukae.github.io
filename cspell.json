@@ -13,7 +13,34 @@
     "htmlvalidate",
     "secretlint",
     "commitlint",
-    "Dependabot"
+    "Dependabot",
+    "MULT",
+    "textareas",
+    "behaviour",
+    "releaserc",
+    "webp",
+    "reviewdog",
+    "davelosert",
+    "lhci",
+    "autorun",
+    "lighthouseci",
+    "ghaction",
+    "signingkey",
+    "gpgsign",
+    "treosh",
+    "lighthouserc"
   ],
-  "ignorePaths": ["node_modules/**", "dist/**", "package-lock.json", "**/*.png", "**/*.jpg"]
+  "ignorePaths": [
+    "node_modules/**",
+    "dist/**",
+    "package-lock.json",
+    "**/*.png",
+    "**/*.jpg",
+    "**/*.webp",
+    "**/*.webm",
+    ".history/**",
+    "coverage/**",
+    "playwright-report/**",
+    "test-results/**"
+  ]
 }
