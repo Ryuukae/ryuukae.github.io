@@ -154,6 +154,8 @@ export default [
       'eslint.config.js',
       '.history/',
       'coverage/',
+      'playwright-report/',
+      'test-results/',
     ],
   },
 ];
