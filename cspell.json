@@ -18,7 +18,17 @@
     "textareas",
     "behaviour",
     "releaserc",
-    "webp"
+    "webp",
+    "reviewdog",
+    "davelosert",
+    "lhci",
+    "autorun",
+    "lighthouseci",
+    "ghaction",
+    "signingkey",
+    "gpgsign",
+    "treosh",
+    "lighthouserc"
   ],
   "ignorePaths": [
     "node_modules/**",
