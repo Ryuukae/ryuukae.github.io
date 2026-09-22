@@ -1,4 +1,4 @@
-import { NetworkConfig as CONFIG } from './NetworkConfig.js';
+import { NetworkConfig as CONFIG } from '../config/NetworkConfig.js';
 
 /**
  * Responsible for the ambient, drifting constellation mesh in the background.
