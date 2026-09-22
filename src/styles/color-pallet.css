@@ -1,8 +1,16 @@
 /* color-pallet.css */
 :root {
   /* Colors - Backgrounds */
-  --background-color: #0d0d0d;
+  --background-color: #000000;
   --subheader-background: #0a0a14;
+
+  /* Cybernetic Layer Colors */
+  --layer1-grid-color: rgba(0, 200, 185, 0.05);
+  --layer2-node-glow: rgba(0, 200, 185, 0.9);
+  --layer2-edge: rgba(0, 255, 204, 0.8);
+  --layer3-circuit: rgba(26, 95, 120, 0.25);
+  --layer3-node: rgba(0, 200, 185, 0.3);
+  --layer3-pulse: #ffffff;
 
   /* Colors - Box Shadows */
   --image-container-box-shadow: rgba(255, 255, 255, 0.5);
