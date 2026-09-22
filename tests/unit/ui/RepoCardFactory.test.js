@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { RepoCardFactory } from '../../../src/scripts/components/RepoCardFactory.js';
+import { RepoCardFactory } from '../../../src/scripts/ui/RepoCardFactory.js';
 
 describe('RepoCardFactory', () => {
   const mockRepo = {
