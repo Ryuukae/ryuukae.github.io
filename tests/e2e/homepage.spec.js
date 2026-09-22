@@ -52,8 +52,31 @@ test.describe('GitHub Pages Home', () => {
     const firstRepo = page.locator('.repo-item').first();
     await expect(firstRepo).toBeVisible();
 
-    const repoLink = firstRepo.locator('a:has-text("Repo")');
+    const repoLink = firstRepo.locator('a:has-text("Repository")');
     await expect(repoLink).toHaveAttribute('target', '_blank');
     await expect(repoLink).toHaveAttribute('href', /github\.com/);
+  });
+
+  test('image modal functionality', async ({ page }) => {
+    const repoList = page.locator('#repo-list-container');
+    await repoList.waitFor({ state: 'visible' });
+
+    // Open first card to reveal the image
+    const firstRepo = repoList.locator('.repo-item').first();
+    await firstRepo.click();
+
+    // Find and click the image
+    const repoImage = firstRepo.locator('img.repo-image-trigger');
+    await repoImage.click();
+
+    // Verify modal appears and has the correct image
+    const modal = page.locator('#image-modal');
+    await expect(modal).not.toHaveClass(/invisible/);
+    await expect(modal.locator('#modal-image')).toBeVisible();
+
+    // Close the modal
+    const closeBtn = modal.locator('button.modal-close');
+    await closeBtn.click();
+    await expect(modal).toHaveClass(/invisible/);
   });
 });
