@@ -32,9 +32,9 @@ describe('NetworkBackground', () => {
 
     vi.stubGlobal(
       'requestAnimationFrame',
-      vi.fn((cb) => setTimeout(() => cb(performance.now()), 16))
+      vi.fn(() => 0)
     );
-    vi.stubGlobal('cancelAnimationFrame', vi.fn(clearTimeout));
+    vi.stubGlobal('cancelAnimationFrame', vi.fn());
 
     // Mock ResizeObserver
     global.ResizeObserver = class {
