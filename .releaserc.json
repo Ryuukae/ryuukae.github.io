@@ -31,9 +31,15 @@
       }
     ],
     [
+      "@semantic-release/exec",
+      {
+        "prepareCmd": "node scripts/update-jsdoc-version.js ${nextRelease.version}"
+      }
+    ],
+    [
       "@semantic-release/git",
       {
-        "assets": ["package.json", "package-lock.json", "CHANGELOG.md"],
+        "assets": ["package.json", "package-lock.json", "CHANGELOG.md", "src/**/*.js"],
         "message": "chore(release): bump version to ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     ],
