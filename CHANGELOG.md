@@ -1,3 +1,22 @@
+## [1.1.1](https://github.com/Ryuukae/ryuukae.github.io/compare/v1.1.0...v1.1.1) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* **core:** relocate `resources/` directory & repo data structures ([#24](https://github.com/Ryuukae/ryuukae.github.io/issues/24)) ([0620023](https://github.com/Ryuukae/ryuukae.github.io/commit/06200230dd12a9fab49faf67dcebea78f1a449c6))
+* **data:** update repository dataset properties and paths ([a94a78c](https://github.com/Ryuukae/ryuukae.github.io/commit/a94a78ce690ad7eb90ea4b4861b2fd34c20734c2))
+* **resources:** relocate resources directory to public path ([298278a](https://github.com/Ryuukae/ryuukae.github.io/commit/298278a824e61b5008297a440eb197fd252f57d2))
+* **resources:** restore broken repo card images ([#22](https://github.com/Ryuukae/ryuukae.github.io/issues/22)) ([68c8e06](https://github.com/Ryuukae/ryuukae.github.io/commit/68c8e060a5cc9c2f56a5bf252820c86caf3fdc8b))
+* **ui:** correct `RepoCardFactory` property bindings for asset loading ([875ea57](https://github.com/Ryuukae/ryuukae.github.io/commit/875ea575a67d1ddf3203def3629811ef5a7f3f94))
+
+### 🛡️ CI/CD & Automation
+
+* **release:** automate JSDoc version synchronization ([#23](https://github.com/Ryuukae/ryuukae.github.io/issues/23)) ([eebd39c](https://github.com/Ryuukae/ryuukae.github.io/commit/eebd39cf2ea5d0993df0c607f0d012edeaa05b06))
+* **release:** integrate exec plugin for automated jsdoc versioning ([ade1fa2](https://github.com/Ryuukae/ryuukae.github.io/commit/ade1fa21cdc53c252211e9891618ea11a2000231))
+
+### 🧪 Testing & Coverage
+
+* **e2e:** align end-to-end and unit test suites with data schema ([41ca6c5](https://github.com/Ryuukae/ryuukae.github.io/commit/41ca6c59281d0ea924d74d8a9f95657eeaedb734))
+
 ## [1.1.0](https://github.com/Ryuukae/ryuukae.github.io/compare/v1.0.0...v1.1.0) (2026-09-23)
 
 * **animations:** introduce core configuration and utility helpers ([dc0b4f8](https://github.com/Ryuukae/ryuukae.github.io/commit/dc0b4f84324f8a54b69efa58cb9e214c36e13e78))
