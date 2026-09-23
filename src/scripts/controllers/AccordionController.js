@@ -2,7 +2,7 @@
  * Controls the accordion behavior for the repository items list.
  * Utilizes event delegation on the container for efficient event handling.
  * @author Adam Ross DeStafeno
- * @version 1.0.0
+ * @version 1.1.0
  */
 export class AccordionController {
   /**
