@@ -32,9 +32,9 @@ describe('NetworkBackground', () => {
 
     vi.stubGlobal(
       'requestAnimationFrame',
-      vi.fn((cb) => setTimeout(() => cb(performance.now()), 16))
+      vi.fn(() => 0)
     );
-    vi.stubGlobal('cancelAnimationFrame', vi.fn(clearTimeout));
+    vi.stubGlobal('cancelAnimationFrame', vi.fn());
 
     // Mock ResizeObserver
     global.ResizeObserver = class {
@@ -64,8 +64,6 @@ describe('NetworkBackground', () => {
 
     network.init();
     expect(requestAnimationFrame).toHaveBeenCalled();
-    // Use vitest's vi.advanceTimersByTime or just rely on the sync init logic.
-    // wait for resizeCanvas timeout
 
     network.destroy();
   });

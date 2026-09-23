@@ -5,7 +5,7 @@ import { GeometricSphere } from '../entities/GeometricSphere.js';
  * Orchestrator class for the header network animation system.
  * Manages the abstract particle strands and the 3D rotating geometric sphere.
  * @author Adam Ross DeStafeno
- * @version 1.0.0
+ * @version 1.1.0
  */
 export class HeaderNetwork {
   /**
