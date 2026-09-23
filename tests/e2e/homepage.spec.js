@@ -41,7 +41,7 @@ test.describe('GitHub Pages Home', () => {
     await expect(imageContainer).toBeVisible();
 
     // Click again to close
-    await firstRepo.click();
+    await arrow.click();
 
     // Verify closed state
     await expect(arrow).toHaveClass(/fa-chevron-up/);

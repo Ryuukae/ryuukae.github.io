@@ -3,22 +3,24 @@ import { RepoCardFactory } from '../../../src/scripts/ui/RepoCardFactory.js';
 
 describe('RepoCardFactory', () => {
   const mockRepo = {
-    name: 'Test Repo',
+    id: 'test-repo',
+    title: 'Test Repo',
     description: 'A test repository',
-    pagesLink: 'https://example.com/pages',
-    repoLink: 'https://example.com/repo',
-    imageSrc: 'test-image.png',
+    liveUrl: 'https://example.com/pages',
+    githubUrl: 'https://example.com/repo',
+    image: 'test-image.png',
     imageAlt: 'Test Image Alt',
   };
 
-  it('should create an li element with correct class names', () => {
+  it('should create an li element with correct class names and dataset', () => {
     const card = RepoCardFactory.createCard(mockRepo);
     expect(card.tagName.toLowerCase()).toBe('li');
     expect(card.className).toContain('repo-item');
     expect(card.className).toContain('fade-in');
+    expect(card.dataset.repoId).toBe('test-repo');
   });
 
-  it('should populate the repository name and description correctly', () => {
+  it('should populate the repository title and description correctly', () => {
     const card = RepoCardFactory.createCard(mockRepo);
 
     const nameEl = card.querySelector('.repo-name');
@@ -30,7 +32,7 @@ describe('RepoCardFactory', () => {
     expect(descEl.textContent.trim()).toBe('A test repository');
   });
 
-  it('should generate correct links for pages and repo', () => {
+  it('should generate correct links for live site and repository', () => {
     const card = RepoCardFactory.createCard(mockRepo);
 
     const links = card.querySelectorAll('a');
