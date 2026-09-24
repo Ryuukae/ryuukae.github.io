@@ -11,6 +11,6 @@ test.describe('Navigation', () => {
 
     const repoLink = firstRepo.locator('a:has-text("Repository")');
     await expect(repoLink).toHaveAttribute('target', '_blank');
-    await expect(repoLink).toHaveAttribute('href', /github\.com/);
+    await expect(repoLink).toHaveAttribute('href', /^https:\/\/github\.com\/.+/);
   });
 });
