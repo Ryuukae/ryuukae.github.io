@@ -1,7 +1,7 @@
 import '../styles/tailwind.css';
 import { repositories } from './data/repositories.js';
 import { RepoCardFactory } from './ui/RepoCardFactory.js';
-import { AccordionController } from './controllers/AccordionController.js';
+import { ModalController } from './controllers/ModalController.js';
 import { NetworkBackground } from './canvas/orchestrators/NetworkBackground.js';
 import { HeaderNetwork } from './canvas/orchestrators/HeaderNetwork.js';
 
@@ -21,46 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
       listContainer.appendChild(card);
     });
 
-    // Event Delegation for Image Modal
-    listContainer.addEventListener('click', (event) => {
-      const imgTarget = event.target.closest('.repo-image-trigger');
-      if (imgTarget) {
-        const src = imgTarget.getAttribute('data-src');
-        const modal = document.getElementById('image-modal');
-        const modalImg = document.getElementById('modal-image');
-
-        if (modal && modalImg && src) {
-          try {
-            // Sanitize URL to prevent javascript: XSS (CodeQL mitigation)
-            const safeUrl = new URL(src, window.location.href);
-            if (safeUrl.protocol === 'http:' || safeUrl.protocol === 'https:') {
-              // codeql[js/xss-through-dom] - URL protocol is strictly validated above
-              modalImg.src = safeUrl.href;
-              modal.classList.remove('opacity-0', 'invisible');
-            }
-          } catch (e) {
-            console.warn('Invalid image URL:', src, e);
-          }
-        }
-      }
-    });
+    const modalController = new ModalController(listContainer);
+    modalController.init();
   }
-
-  // Initialize Controllers
-  const accordionController = new AccordionController('repo-list-container');
-  accordionController.init();
-
-  // Setup Image Modal Closing
-  const closeModal = () => {
-    const modal = document.getElementById('image-modal');
-    if (modal) {
-      modal.classList.add('opacity-0', 'invisible');
-    }
-  };
-
-  document.querySelectorAll('.modal-close').forEach((el) => {
-    el.addEventListener('click', closeModal);
-  });
 
   // Dynamic Button Circuit Tracks
   const sparkBtns = document.querySelectorAll('.spark-btn');
