@@ -50,7 +50,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: 'test(e2e): update linux visual regression snapshots'
-          file_pattern: 'tests/e2e/**/*-snapshots/*.png'
+          file_pattern: 'tests/e2e/**/*.png'
           commit_user_name: 'Ryuukae'
           commit_user_email: 'ryuukae.dev@gmail.com'
           commit_author: 'Ryuukae <ryuukae.dev@gmail.com>'
