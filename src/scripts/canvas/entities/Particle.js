@@ -4,7 +4,7 @@ import { NetworkConfig as CONFIG } from '../config/NetworkConfig.js';
  * Represents a single floating particle in the background canvas network.
  * Tracks its own movement history, coordinates, and rendering logic.
  * @author Adam Ross DeStafeno
- * @version 1.1.1
+ * @version 1.2.0
  */
 export class Particle {
   /**

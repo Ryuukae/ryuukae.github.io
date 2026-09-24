@@ -6,7 +6,7 @@
  * correct project data on demand. It also makes sure to use native DOM properties
  * to inject that data safely, keeping us protected from XSS vulnerabilities.
  * @author Adam Ross DeStafeno
- * @version 1.1.1
+ * @version 1.2.0
  */
 export class DefaultModalView {
   /**

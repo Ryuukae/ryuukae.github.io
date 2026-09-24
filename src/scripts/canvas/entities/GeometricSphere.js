@@ -3,7 +3,7 @@ import { NetworkConfig as CONFIG } from '../config/NetworkConfig.js';
 /**
  * Responsible for the 3D rotating ball/core that moves across the header.
  * @author Adam Ross DeStafeno
- * @version 1.1.1
+ * @version 1.2.0
  */
 export class GeometricSphere {
   /**

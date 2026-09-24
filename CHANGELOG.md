@@ -1,3 +1,39 @@
+## [1.2.0](https://github.com/Ryuukae/ryuukae.github.io/compare/v1.1.1...v1.2.0) (2026-09-24)
+
+### ✨ Features
+
+* **modal:** author DefaultModalView blueprint and interactions ([1cd1ba7](https://github.com/Ryuukae/ryuukae.github.io/commit/1cd1ba7474e02f5144eabace400eb2862a78bdb2))
+* **modal:** author modal base styles and deprecate legacy UI CSS ([c64f546](https://github.com/Ryuukae/ryuukae.github.io/commit/c64f5469d2aaa19279accee2427bcdbef3759554))
+* **modal:** implement focus trap utility for accessibility ([c383330](https://github.com/Ryuukae/ryuukae.github.io/commit/c3833304fb8676828b7efd961034418784d4e751))
+* **modal:** implement ModalController and wire application entry ([cbff7b8](https://github.com/Ryuukae/ryuukae.github.io/commit/cbff7b899ece1084ca0b1aed979925774bee7b6a))
+* **modal:** implement ModalRenderer for DOM lifecycle management ([ef8905b](https://github.com/Ryuukae/ryuukae.github.io/commit/ef8905bfa2ca43868818a17e77902ba5874bf5e0))
+* **modal:** introduce modal MVC architecture & WCAG focus trap ([#25](https://github.com/Ryuukae/ryuukae.github.io/issues/25)) ([c767236](https://github.com/Ryuukae/ryuukae.github.io/commit/c7672365b6d1634f742d6484e7c9f3b8f48e9359))
+* **release:** merge modal architecture into main ([#26](https://github.com/Ryuukae/ryuukae.github.io/issues/26)) ([09870ed](https://github.com/Ryuukae/ryuukae.github.io/commit/09870edb9c2582582d7f61fd83d703687ad217c1))
+
+### 🐛 Bug Fixes
+
+* **modal:** resolve jsdoc eslint warning for focusTrap return type ([e5a21a8](https://github.com/Ryuukae/ryuukae.github.io/commit/e5a21a83e12a00f5b416ea483dee436117df8943))
+* **test:** add anchor to playwright href regex to resolve codeql warning ([1db4141](https://github.com/Ryuukae/ryuukae.github.io/commit/1db41417437c0d6431280ff45aedc41a24d14d57))
+
+### 🏗️ Architecture & Refactoring
+
+* **assets:** reorganize repository screenshots into subdirectories ([de1ccd3](https://github.com/Ryuukae/ryuukae.github.io/commit/de1ccd39582e2a507c4b5757c2f5647c1606e0f6))
+* **data:** expand repository schema with detailed modal content ([18ab280](https://github.com/Ryuukae/ryuukae.github.io/commit/18ab2801f2635f37b386c95fa3b9fbb5fbdae749))
+* **ui:** update repository cards and deprecate legacy accordion ([0efd802](https://github.com/Ryuukae/ryuukae.github.io/commit/0efd802743ce479ead0b32841e7b731d2dff31d9))
+
+### 📦 Build System & Dependencies
+
+* **ci:** configure cspell to respect gitignore rules ([1627eae](https://github.com/Ryuukae/ryuukae.github.io/commit/1627eaefbf9c2a1c180872e82f2e7c3df1f60e2f))
+* **ci:** consolidate visual snapshot workflows ([1903b53](https://github.com/Ryuukae/ryuukae.github.io/commit/1903b539d3f31ea10e82a8259db6c8363a73e4ce))
+* **ci:** enforce zero warnings in lint-staged eslint checks ([40e1f38](https://github.com/Ryuukae/ryuukae.github.io/commit/40e1f38ebe448247c515127daa3d2ffa50cbc37a))
+* **ci:** fix visual snapshot file pattern for git-auto-commit ([6917537](https://github.com/Ryuukae/ryuukae.github.io/commit/69175379a621bb0a04af82301aea1949e042e9eb))
+* **ci:** migrate commitlint and update linting configurations ([eab94e2](https://github.com/Ryuukae/ryuukae.github.io/commit/eab94e2a7fa7f6d11a52f8d0332923b43f30e3a2))
+
+### 🧪 Testing & Coverage
+
+* **e2e:** update linux visual regression snapshots ([713f4ba](https://github.com/Ryuukae/ryuukae.github.io/commit/713f4ba673c0987534ca6220412e14fec8884684))
+* **modal:** restructure e2e test suite into domain-specific files ([1ff13fc](https://github.com/Ryuukae/ryuukae.github.io/commit/1ff13fc3f18e75f388347c67b48c34ac32756aa0))
+
 ## [1.1.1](https://github.com/Ryuukae/ryuukae.github.io/compare/v1.1.0...v1.1.1) (2026-09-23)
 
 ### 🐛 Bug Fixes

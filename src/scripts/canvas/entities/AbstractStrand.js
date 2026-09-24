@@ -4,7 +4,7 @@ import { Particle } from './Particle.js';
 /**
  * Manages the abstract particle strands (DNA-like waves) moving across the header.
  * @author Adam Ross DeStafeno
- * @version 1.1.1
+ * @version 1.2.0
  */
 export class AbstractStrand {
   /**

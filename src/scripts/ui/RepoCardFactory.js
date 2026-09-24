@@ -2,7 +2,7 @@
  * Factory class responsible for generating repository card DOM elements.
  * Constructs the complex inner HTML structure and styling for each card.
  * @author Adam Ross DeStafeno
- * @version 1.1.1
+ * @version 1.2.0
  */
 export class RepoCardFactory {
   /**

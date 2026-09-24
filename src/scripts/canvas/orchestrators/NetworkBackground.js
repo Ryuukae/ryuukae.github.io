@@ -6,7 +6,7 @@ import { CircuitTracks } from '../systems/CircuitTracks.js';
  * Orchestrator class for the network background animation system.
  * Manages the constellation mesh, geometric grid, and interactive circuit tracks.
  * @author Adam Ross DeStafeno
- * @version 1.1.1
+ * @version 1.2.0
  */
 export class NetworkBackground {
   /**

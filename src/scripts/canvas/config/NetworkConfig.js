@@ -1,7 +1,7 @@
 /**
  * Configuration constants for the network canvas animations.
  * @author Adam Ross DeStafeno
- * @version 1.1.1
+ * @version 1.2.0
  */
 export const NetworkConfig = {
   // Background Config

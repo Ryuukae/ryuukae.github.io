@@ -7,7 +7,7 @@ import { ModalRenderer } from '../renderers/ModalRenderer.js';
  * It listens for clicks on repository cards, fetches the correct data, tells
  * the view to build the HTML, and then hands that HTML to the renderer to display.
  * @author Adam Ross DeStafeno
- * @version 1.1.1
+ * @version 1.2.0
  */
 export class ModalController {
   /**
