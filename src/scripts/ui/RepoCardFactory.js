@@ -20,19 +20,22 @@ export class RepoCardFactory {
   static createCard(repo) {
     const li = document.createElement('li');
     li.className =
-      'repo-item repo-item-font fade-in relative bg-black/60 backdrop-blur-xl rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.8)] cursor-pointer flex flex-col border border-cyan-900/30 hover:border-cyan-900/80 hover:shadow-[0_0_30px_rgba(0,255,255,0.15)] hover:-translate-y-2 active:scale-[0.96] transition-all duration-500 ease-in-out overflow-hidden h-fit break-inside-avoid mb-6';
+      'repo-item group/card repo-item-font fade-in relative bg-black/60 backdrop-blur-xl rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.8)] cursor-pointer flex flex-col border border-cyan-900/30 hover:border-cyan-900/80 hover:shadow-[0_0_30px_rgba(0,255,255,0.15)] hover:-translate-y-2 active:scale-[0.96] transition-all duration-500 ease-in-out overflow-hidden h-fit break-inside-avoid mb-6';
 
     li.dataset.repoId = repo.id;
 
     li.innerHTML = `
+      <!-- Top Right Modal Icon -->
+      <i class="fas fa-external-link-alt absolute top-6 right-6 text-slate-400 group-hover/card:text-cyan-400 group-hover/card:translate-x-1 group-hover/card:[animation:flash-pulse-blue_1.2s_infinite_ease-in-out] group-has-[a:hover]/card:!text-slate-400 group-has-[a:hover]/card:!translate-x-0 group-has-[a:hover]/card:![animation:none] transition-all duration-300 z-10 text-lg pointer-events-none"></i>
+      
       <div class="flex flex-col p-6">
-          <div class="flex-grow mb-4">
+          <div class="flex-grow mb-2 pr-8">
               <span class="repo-name repo-name-font block w-full mb-3 font-bold">${repo.title}</span>
-              <p class="repo-description repo-description-font leading-relaxed text-slate-300">
+              <p class="repo-description repo-description-font leading-relaxed text-sm text-slate-400">
                   ${repo.description}
               </p>
           </div>
-          <div class="repo-image-container relative overflow-hidden max-h-0 opacity-0 invisible transition-all duration-300 ease-in-out mt-0 mb-4 w-full bg-black rounded-xl border border-cyan-500/40 shadow-[0_0_20px_rgba(0,255,255,0.15)]">
+          <div class="repo-image-container relative overflow-hidden max-h-0 opacity-0 invisible transition-all duration-300 ease-in-out mt-0 w-full bg-black rounded-xl border border-cyan-500/40 shadow-[0_0_20px_rgba(0,255,255,0.15)]">
               <div class="relative group">
                   <img alt="${repo.imageAlt}" src="${repo.image}" data-src="${repo.image}" class="w-full h-auto cursor-pointer transition-transform duration-500 group-hover:scale-105 repo-image-trigger" title="Click to enlarge">
                   <!-- Inner shadow overlay for blending and cyber effect -->
@@ -45,14 +48,16 @@ export class RepoCardFactory {
           </div>
           <div class="repo-links-container flex flex-wrap items-center justify-between gap-4 mt-auto pt-4 border-t border-[var(--blue-5)]/20 w-full">
               <div class="flex gap-4">
-                  <a href="${repo.liveUrl}" target="_blank" class="flex items-center gap-2 text-slate-400 hover:text-cyan-400 hover:translate-x-1 hover-pulse-blue hover:underline transition-all duration-300">
+                  <button type="button" class="flex items-center gap-2 text-slate-400 hover:text-cyan-400 hover:translate-x-1 hover-pulse-blue transition-all duration-300 !font-sans !font-normal text-[clamp(0.8rem,1vw,0.9rem)]" aria-label="More Information">
+                      <i class="fas fa-info-circle"></i> <span class="hidden sm:inline italic">More Info</span>
+                  </button>
+                  <a href="${repo.liveUrl}" target="_blank" class="flex items-center gap-2 text-slate-400 hover:text-cyan-400 hover:translate-x-1 hover-pulse-blue transition-all duration-300 !font-sans !font-normal text-[clamp(0.8rem,1vw,0.9rem)]">
                       <i class="fas fa-link"></i> <span class="hidden sm:inline italic">Visit Site</span>
                   </a>
-                  <a href="${repo.githubUrl}" target="_blank" class="flex items-center gap-2 text-slate-400 hover:text-cyan-400 hover:translate-x-1 hover-pulse-blue hover:underline transition-all duration-300">
+                  <a href="${repo.githubUrl}" target="_blank" class="flex items-center gap-2 text-slate-400 hover:text-cyan-400 hover:translate-x-1 hover-pulse-blue transition-all duration-300 !font-sans !font-normal text-[clamp(0.8rem,1vw,0.9rem)]">
                       <i class="fab fa-github"></i> <span class="hidden sm:inline italic">Repository</span>
                   </a>
               </div>
-              <i class="fas fa-chevron-up repo-arrow repo-arrow-font cursor-pointer transition-transform duration-500 hover:scale-125"></i>
           </div>
       </div>
     `;

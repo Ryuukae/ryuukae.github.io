@@ -1,27 +1,27 @@
 name: Update Visual Snapshots
 
 on:
-  workflow_dispatch: # Adds a "Run workflow" button in the GitHub Actions tab
-
-permissions:
-  contents: write # Required to allow the bot to push commits to your branch
+  workflow_dispatch:
 
 jobs:
   update-snapshots:
     name: Generate Linux E2E Snapshots
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    # Add the secret to the job's environment to bypass local linter errors
+    env:
+      GPG_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v7
+      - uses: actions/checkout@v7
         with:
-          # Ensure we checkout the specific branch you trigger the workflow on
-          ref: ${{ github.ref }}
+          lfs: true
+          ref: ${{ github.head_ref || github.ref }}
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version: 22
           cache: 'npm'
 
       - name: Install Dependencies
@@ -33,22 +33,25 @@ jobs:
       - name: Build Production Bundle
         run: npm run build
 
-      - name: Update Visual Snapshots
+      - name: Update Snapshots
         run: npm run snapshots:renew
 
-      - name: Commit and Push Updated Snapshots
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Import GPG Key for Verified Signatures
+        uses: crazy-max/ghaction-import-gpg@v6
+        if: env.GPG_KEY != ''
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+          git_tag_gpgsign: false
 
-          # Stage the snapshot files
-          git add tests/e2e/**/*-snapshots/*.png
-
-          # Check if there are actually any changes to commit
-          if ! git diff --staged --quiet; then
-            # Use --no-verify to safely bypass your Husky hooks for the bot
-            git commit --no-verify -m "test(e2e): update linux visual regression snapshots"
-            git push
-          else
-            echo "Snapshots are already up to date! No commit necessary."
-          fi
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: 'test(e2e): update linux visual regression snapshots'
+          file_pattern: 'tests/e2e/**/*.png'
+          commit_user_name: 'Ryuukae'
+          commit_user_email: 'ryuukae.dev@gmail.com'
+          commit_author: 'Ryuukae <ryuukae.dev@gmail.com>'
+          commit_options: '--no-verify'

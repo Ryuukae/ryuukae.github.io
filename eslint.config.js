@@ -85,10 +85,10 @@ export default [
           contexts: [
             {
               comment:
-                'JsdocTag[tag=/^(?!(param|arg|argument|returns|return|throws|exception|author|version)$).+$/]',
+                'JsdocTag[tag=/^(?!(param|arg|argument|returns|return|throws|exception|author|version|private|public)$).+$/]',
               context: 'any',
               message:
-                'Strict Mode: You are only allowed to use @param, @returns, @throws, @author, and @version. Extraneous tags are prohibited.',
+                'Strict Mode: You are only allowed to use @param, @returns, @throws, @author, @version, @private, and @public. Extraneous tags are prohibited.',
             },
           ],
         },
@@ -105,6 +105,8 @@ export default [
           tagSequence: [
             {
               tags: [
+                'private',
+                'public',
                 'param',
                 'arg',
                 'argument',

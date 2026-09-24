@@ -1,12 +1,14 @@
 {
   "version": "0.2",
   "language": "en",
+  "useGitignore": true,
   "words": [
     "Adam",
     "Ross",
     "DeStafeno",
     "Ryuukae",
     "Vite",
+    "stefanzweifel",
     "Vitest",
     "Tailwindcss",
     "stylelint",
@@ -31,7 +33,12 @@
     "lighthouserc",
     "unhovered",
     "reinit",
-    "respawning"
+    "respawning",
+    "stylesheet",
+    "Flexbox",
+    "viewports",
+    "a11y",
+    "cicd"
   ],
   "ignorePaths": [
     "node_modules/**",

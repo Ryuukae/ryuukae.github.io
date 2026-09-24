@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="./src/styles/base-styles.css" type="text/css" />
     <link rel="stylesheet" href="./src/styles/font-styles.css" type="text/css" />
     <link rel="stylesheet" href="./src/styles/debug-styles.css" type="text/css" />
+    <link rel="stylesheet" href="./src/styles/modal.css" type="text/css" />
 
     <!--  Javascript imports -->
     <script src="./src/scripts/main.js" type="module"></script>
@@ -120,31 +121,6 @@
     <!-- Repositories Section (2-Column Masonry) -->
     <div class="flex flex-col mx-auto max-w-[1280px] py-[1%] px-[2%] w-full z-[11]">
       <ul id="repo-list-container" class="columns-1 md:columns-2 gap-6 list-none p-0"></ul>
-    </div>
-
-    <!-- Image Modal -->
-    <div
-      id="image-modal"
-      class="fixed inset-0 z-50 flex items-center justify-center opacity-0 invisible transition-all duration-300"
-    >
-      <!-- Blurred background -->
-      <div class="absolute inset-0 bg-black/70 backdrop-blur-md modal-close"></div>
-
-      <!-- Modal Content -->
-      <div class="relative z-10 max-w-[95vw] w-full max-h-[95vh] p-2 flex flex-col items-center">
-        <button
-          type="button"
-          class="absolute -top-2 -right-2 text-white hover:text-cyan-400 hover:scale-110 transition-all text-4xl modal-close cursor-pointer bg-black/50 rounded-full w-12 h-12 flex items-center justify-center border border-cyan-500/30 shadow-[0_0_15px_rgba(0,255,255,0.2)] z-20"
-        >
-          &times;
-        </button>
-        <img
-          id="modal-image"
-          src="data:,"
-          alt="Expanded preview"
-          class="max-w-full max-h-[95vh] object-contain border border-cyan-500/50 rounded-xl shadow-[0_0_30px_rgba(0,255,255,0.15)]"
-        />
-      </div>
     </div>
   </body>
 </html>
