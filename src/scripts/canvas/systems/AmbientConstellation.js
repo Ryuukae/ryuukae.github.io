@@ -3,7 +3,7 @@ import { NetworkConfig as CONFIG } from '../config/NetworkConfig.js';
 /**
  * Responsible for the ambient, drifting constellation mesh in the background.
  * @author Adam Ross DeStafeno
- * @version 1.1.0
+ * @version 1.1.1
  */
 export class AmbientConstellation {
   /**

@@ -170,49 +170,6 @@ body::after {
   margin: 5px 0;
 }
 
-.repo-image-container {
-  max-height: 0;
-  backdrop-filter: blur(8px);
-  opacity: 0;
-  overflow: hidden; /* Hide overflow */
-  transition:
-    max-height 1s ease-in-out,
-    opacity 0.3s ease-in-out,
-    visibility 0s linear 1s; /* Visibility changes instantly after delay */
-
-  visibility: hidden; /* Ensures the element is hidden from view */
-}
-
-.repo-image-container.open {
-  max-height: 500px; /* Adjust based on content needs */
-  opacity: 1;
-  transition:
-    max-height 1s ease-in-out,
-    opacity 0.3s ease-in-out,
-    visibility 0s linear 0s; /* No delay for visibility on open */
-
-  visibility: visible; /* Ensures the element becomes visible */
-}
-
-.repo-image-container img {
-  height: auto;
-  width: 100%;
-}
-
-.repo-image-container p {
-  color: var(--repo-details-text-color);
-  font-family: Roboto, sans-serif;
-  font-size: 1.1em;
-  line-height: 1.6;
-  margin: 10px 0;
-}
-
-.repo-image-container .repo-description-full {
-  color: var(--repo-description-color);
-  font-size: 1em;
-  margin-top: 10px;
-}
-
 #subheader-author-prefix {
   padding-left: 40px;
 }
