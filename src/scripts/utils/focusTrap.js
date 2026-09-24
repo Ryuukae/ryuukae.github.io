@@ -2,7 +2,7 @@
  * Utility function to trap keyboard focus within a specific DOM element.
  * Crucial for modal accessibility to prevent users from tabbing to background elements.
  * @param {HTMLElement} element - The DOM element to trap focus within.
- * @returns {Function} A teardown function to remove the event listeners.
+ * @returns {() => void} - A teardown function to remove the event listeners.
  */
 export function trapFocus(element) {
   const selector =
