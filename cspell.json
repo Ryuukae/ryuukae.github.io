@@ -38,7 +38,8 @@
     "Flexbox",
     "viewports",
     "a11y",
-    "cicd"
+    "cicd",
+    "WCAG"
   ],
   "ignorePaths": [
     "node_modules/**",
