@@ -31,7 +31,12 @@
     "lighthouserc",
     "unhovered",
     "reinit",
-    "respawning"
+    "respawning",
+    "stylesheet",
+    "Flexbox",
+    "viewports",
+    "a11y",
+    "cicd"
   ],
   "ignorePaths": [
     "node_modules/**",
