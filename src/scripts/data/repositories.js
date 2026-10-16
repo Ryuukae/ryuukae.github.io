@@ -4,7 +4,7 @@ export const repositories = [
     title: 'Interactive-Web-Quiz',
     description:
       'A flexible evaluation platform built for deploying customized assessments in any environment.',
-    liveUrl: 'https://pages.ryuukae.io/interactive-web-quiz/src/',
+    liveUrl: 'https://pages.ryuukae.io/interactive-web-quiz',
     githubUrl: 'https://github.com/Ryuukae/interactive-web-quiz',
     image: '/resources/interactive-web-quiz/main-window.png',
     imageAlt: 'Screenshot of the Interactive-Web-Quiz site.',
