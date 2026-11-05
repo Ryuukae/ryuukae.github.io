@@ -4,7 +4,7 @@ import { getCircuitPath } from '../utils/NetworkUtils.js';
 /**
  * Manages the dynamic circuit animations triggered by button hovers.
  * @author Adam Ross DeStafeno
- * @version 1.2.0
+ * @version 1.3.0
  */
 export class CircuitTracks {
   /**

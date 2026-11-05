@@ -4,7 +4,7 @@ import { trapFocus } from '../utils/focusTrap.js';
  * The ModalRenderer class handles the DOM lifecycle, accessibility, and event binding
  * for the modal infrastructure. It is entirely decoupled from the view blueprints.
  * @author Adam Ross DeStafeno
- * @version 1.2.0
+ * @version 1.3.0
  */
 export class ModalRenderer {
   /**

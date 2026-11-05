@@ -4,7 +4,7 @@ import { getCircuitPath } from '../utils/NetworkUtils.js';
 /**
  * Responsible for the static, vertical geometric circuit lines in the background.
  * @author Adam Ross DeStafeno
- * @version 1.2.0
+ * @version 1.3.0
  */
 export class PageGrid {
   /**

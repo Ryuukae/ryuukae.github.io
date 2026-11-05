@@ -1,3 +1,21 @@
+## [1.3.0](https://github.com/Ryuukae/ryuukae.github.io/compare/v1.2.0...v1.3.0) (2026-11-05)
+
+* **main:** merge dev into main ([#28](https://github.com/Ryuukae/ryuukae.github.io/issues/28)) ([b10d067](https://github.com/Ryuukae/ryuukae.github.io/commit/b10d067f6ea47f3bea95c38ecd21835c7b5b994c))
+* **pathing:** fix live URL for Interactive-Web-Quiz ([ac335ea](https://github.com/Ryuukae/ryuukae.github.io/commit/ac335eab90fc44ae3512477ee3897c48e622030c))
+
+### ✨ Features
+
+* **index.html:** add credentials link to contact pills ([6988337](https://github.com/Ryuukae/ryuukae.github.io/commit/6988337fc0745c876566e3e61b8492a78f2f9997))
+* **index.html:** add credentials link to contact pills ([#27](https://github.com/Ryuukae/ryuukae.github.io/issues/27)) ([05cf2fa](https://github.com/Ryuukae/ryuukae.github.io/commit/05cf2fa5df32275d71e0765296b84beb993f78d7))
+
+### 📦 Build System & Dependencies
+
+* **ci:** add WCAG to spellcheck dictionary to unblock push ([714f0f1](https://github.com/Ryuukae/ryuukae.github.io/commit/714f0f1795be87d71e6cf5f6e866d06aede2041c))
+
+### 🛡️ CI/CD & Automation
+
+* **deploy:** add workflow_dispatch to main pipeline for manual triggers ([c47fc1d](https://github.com/Ryuukae/ryuukae.github.io/commit/c47fc1df468385e253402f79af51f69cac193f9c))
+
 ## [1.2.0](https://github.com/Ryuukae/ryuukae.github.io/compare/v1.1.1...v1.2.0) (2026-09-24)
 
 ### ✨ Features
